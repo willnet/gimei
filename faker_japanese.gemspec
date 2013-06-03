@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = FakerJapanese::VERSION
   gem.authors       = ["willnet"]
   gem.email         = ["netwillnet@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{faker for japanese}
+  gem.summary       = %q{faker for japanese}
+  gem.homepage      = "https://github.com/willnet/faker_japanese"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
