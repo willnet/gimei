@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Gimei::VERSION
   gem.authors       = ["willnet"]
   gem.email         = ["netwillnet@gmail.com"]
-  gem.description   = %q{faker for japanese}
-  gem.summary       = %q{faker for japanese}
+  gem.description   = %q{random Japanese name generator}
+  gem.summary       = %q{random Japanese name generator. support kanji, hiragana, and katakana}
   gem.homepage      = "https://github.com/willnet/gimei"
 
   gem.files         = `git ls-files`.split($/)
