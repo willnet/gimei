@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 require_relative 'spec_helper'
 
-describe FakerJapanese::Name do
-  before { @name = FakerJapanese::Name.new }
+describe Gimei do
+  before { @name = Gimei.new }
 
   describe '#kanji' do
     it '全角文字とスペースが返ること' do
@@ -23,8 +23,8 @@ describe FakerJapanese::Name do
   end
 end
 
-describe FakerJapanese::Name::First do
-  before { @name = FakerJapanese::Name::First.new }
+describe Gimei::First do
+  before { @name = Gimei::First.new }
 
   describe '#kanji' do
     it '全角文字が返ること' do
@@ -45,8 +45,8 @@ describe FakerJapanese::Name::First do
   end
 end
 
-describe FakerJapanese::Name::Last do
-  before { @name = FakerJapanese::Name::Last.new }
+describe Gimei::Last do
+  before { @name = Gimei::Last.new }
 
   describe '#kanji' do
     it '全角文字が返ること' do
