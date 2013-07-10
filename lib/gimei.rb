@@ -3,10 +3,16 @@ require 'yaml'
 
 class Gimei
   NAMES = YAML.load_file(File.expand_path(File.join('..', 'data', 'names.yml'), __FILE__))
+  GENDER = [:male, :female].freeze
 
   class First
-    def initialize
-      @name = NAMES['first_name'].sample
+    def initialize(gender = nil)
+      @gender = gender || GENDER[rand 2]
+      @name = NAMES['first_name'][@gender.to_s].sample
+    end
+
+    def gender
+      @gender
     end
 
     def kanji
@@ -40,9 +46,14 @@ class Gimei
     end
   end
 
-  def initialize
-    @first = First.new
+  def initialize(gender = nil)
+    @gender = gender || GENDER[rand 2]
+    @first = First.new @gender
     @last = Last.new
+  end
+
+  def gender
+    @gender
   end
 
   def kanji
