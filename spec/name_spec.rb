@@ -21,6 +21,20 @@ describe Gimei do
       @name.katakana.must_match /\A[\p{katakana}\s]+\z/
     end
   end
+
+  describe '#female' do
+    before { @name = Gimei.new(:female) }
+    it '女性の名前が返ること' do
+      assert_equal @name.first.gender, :female
+    end
+  end
+
+  describe '#male' do
+    before { @name = Gimei.new(:male) }
+    it '男性の名前が返ること' do
+      assert_equal @name.first.gender, :male
+    end
+  end
 end
 
 describe Gimei::First do
@@ -43,6 +57,21 @@ describe Gimei::First do
       @name.katakana.must_match /\A\p{katakana}+\z/
     end
   end
+
+  describe '#female' do
+    before { @name = Gimei::First.new(:female) }
+    it '女性の名前が返ること' do
+      assert_equal @name.gender, :female
+    end
+  end
+
+  describe '#male' do
+    before { @name = Gimei::First.new(:male) }
+    it '男性の名前が返ること' do
+      assert_equal @name.gender, :male
+    end
+  end
+
 end
 
 describe Gimei::Last do
