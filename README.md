@@ -1,6 +1,7 @@
 # Gimei
 
 [![Build Status](https://travis-ci.org/willnet/gimei.png)](https://travis-ci.org/willnet/gimei)
+[![Gem Version](https://badge.fury.io/rb/gimei.png)](http://badge.fury.io/rb/gimei)
 [![endorse](https://api.coderwall.com/willnet/endorsecount.png)](https://coderwall.com/willnet)
 
 gimei は、日本人の名前をランダムに返すライブラリです。テストの時などに使います。似たようなライブラリに[faker](https://github.com/stympy/faker)があります。[faker](https://github.com/stympy/faker)はとても優れたライブラリで、多言語対応もしていますが、ふりがな(フリガナ)は流石に対応していません。gimei は名前のふりがな(及びフリガナ)に対応しています。
