@@ -20,4 +20,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('rake')
   gem.add_development_dependency('moji')
   gem.add_development_dependency('minitest')
+  gem.add_development_dependency('coveralls')
 end

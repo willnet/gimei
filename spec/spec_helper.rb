@@ -6,3 +6,5 @@ require 'gimei'
 require 'bundler/setup'
 require 'minitest/autorun'
 require 'moji'
+require 'coveralls'
+Coveralls.wear!
