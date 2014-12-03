@@ -55,6 +55,23 @@ Gimei.first.katakana #=> "ヤマト"
 
 出力される名前の候補となるデータは `lib/data/names.yml` にあるので、必要であればファイルを修正してください。
 
+バージョン0.2.0からは、住所情報も取得できるようになりました。都道府県、区、市、町を組み合わせた住所情報を漢字、ひらがな、カタカナで取得することができます。
+
+```ruby
+Gimei.kanji_prefectural      # => 島根県
+Gimei.kanji_city             # => 糟屋郡宇美町
+Gimei.kanji_town             # => 柚木
+Gimei.kanji_address          # => 広島県 明石市 金屋谷
+Gimei.hiragana_prefectural   # => ふくしまけん
+Gimei.hiragana_city          # => いなしきぐんかわちまち
+Gimei.hiragana_town          # => いわさきにし
+Gimei.hiragana_address       # => きょうとふ さかいしにしく みさと
+Gimei.katakana_prefectural   # => クマモトケン
+Gimei.katakana_city          # => フナバシシ
+Gimei.katakana_town          # => ショウフクジ
+Gimei.katakana_address       # => ナガサキケン オオヌマグンショウワムラ ショウリン
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:

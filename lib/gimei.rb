@@ -3,6 +3,7 @@ require 'yaml'
 
 class Gimei
   NAMES = YAML.load_file(File.expand_path(File.join('..', 'data', 'names.yml'), __FILE__))
+  ADDRESSES = YAML.load_file(File.expand_path(File.join('..', 'data', 'addresses.yml'), __FILE__))
   GENDER = [:male, :female].freeze
 
   class << self
@@ -35,6 +36,54 @@ class Gimei
 
     def last
       new.last
+    end
+
+    def kanji_prefectural
+      Address.new.kanji_prefectural
+    end
+
+    def kanji_city
+      Address.new.kanji_city
+    end
+
+    def kanji_town
+      Address.new.kanji_town
+    end
+
+    def kanji_address
+      Address.new.kanji_address
+    end
+
+    def hiragana_prefectural
+      Address.new.hiragana_prefectural
+    end
+
+    def hiragana_city
+      Address.new.hiragana_city
+    end
+
+    def hiragana_town
+      Address.new.hiragana_town
+    end
+
+    def hiragana_address
+      Address.new.hiragana_address
+    end
+
+    def katakana_prefectural
+      Address.new.katakana_prefectural
+    end
+
+    def katakana_city
+      Address.new.katakana_city
+    end
+
+    def katakana_town
+      Address.new.katakana_town
+    end
+
+    def katakana_address
+      Address.new.katakana_address
     end
   end
 
@@ -136,6 +185,66 @@ class Gimei
 
     def to_s
       kanji
+    end
+  end
+
+  class Address
+    def initialize
+      @prefectural = ADDRESSES['addresses']['prefectural'].sample
+      @city = ADDRESSES['addresses']['city'].sample
+      @town = ADDRESSES['addresses']['town'].sample
+    end
+
+    def kanji_prefectural
+      "#{@prefectural[0]}"
+    end
+
+    def kanji_city
+      "#{@city[0]}"
+    end
+
+    def kanji_town
+      "#{@town[0]}"
+    end
+
+    def kanji_address
+      "#{@prefectural[0]} #{@city[0]} #{@town[0]}"
+    end
+
+    def hiragana_prefectural
+      "#{@prefectural[1]}"
+    end
+
+    def hiragana_city
+      "#{@city[1]}"
+    end
+
+    def hiragana_town
+      "#{@town[1]}"
+    end
+
+    def hiragana_address
+      "#{@prefectural[1]} #{@city[1]} #{@town[1]}"
+    end
+
+    def katakana_prefectural
+      "#{@prefectural[2]}"
+    end
+
+    def katakana_city
+      "#{@city[2]}"
+    end
+
+    def katakana_town
+      "#{@town[2]}"
+    end
+
+    def katakana_address
+      "#{@prefectural[2]} #{@city[2]} #{@town[2]}"
+    end
+
+    def to_s
+      kanji_address
     end
   end
 end
