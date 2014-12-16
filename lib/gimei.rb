@@ -38,52 +38,20 @@ class Gimei
       new.last
     end
 
-    def kanji_prefectural
-      Address.new.kanji_prefectural
+    def address
+      Address.new
     end
 
-    def kanji_city
-      Address.new.kanji_city
+    def prefecture
+      address.prefecture
     end
 
-    def kanji_town
-      Address.new.kanji_town
+    def city
+      address.city
     end
 
-    def kanji_address
-      Address.new.kanji_address
-    end
-
-    def hiragana_prefectural
-      Address.new.hiragana_prefectural
-    end
-
-    def hiragana_city
-      Address.new.hiragana_city
-    end
-
-    def hiragana_town
-      Address.new.hiragana_town
-    end
-
-    def hiragana_address
-      Address.new.hiragana_address
-    end
-
-    def katakana_prefectural
-      Address.new.katakana_prefectural
-    end
-
-    def katakana_city
-      Address.new.katakana_city
-    end
-
-    def katakana_town
-      Address.new.katakana_town
-    end
-
-    def katakana_address
-      Address.new.katakana_address
+    def town
+      address.town
     end
   end
 
@@ -190,61 +158,95 @@ class Gimei
 
   class Address
     def initialize
-      @prefectural = ADDRESSES['addresses']['prefectural'].sample
-      @city = ADDRESSES['addresses']['city'].sample
-      @town = ADDRESSES['addresses']['town'].sample
+      @prefectural = Prefecture.new
+      @city = City.new
+      @town = Town.new
     end
 
-    def kanji_prefectural
-      "#{@prefectural[0]}"
-    end
-
-    def kanji_city
-      "#{@city[0]}"
-    end
-
-    def kanji_town
-      "#{@town[0]}"
-    end
-
-    def kanji_address
-      "#{@prefectural[0]} #{@city[0]} #{@town[0]}"
-    end
-
-    def hiragana_prefectural
-      "#{@prefectural[1]}"
-    end
-
-    def hiragana_city
-      "#{@city[1]}"
-    end
-
-    def hiragana_town
-      "#{@town[1]}"
-    end
-
-    def hiragana_address
-      "#{@prefectural[1]} #{@city[1]} #{@town[1]}"
-    end
-
-    def katakana_prefectural
-      "#{@prefectural[2]}"
-    end
-
-    def katakana_city
-      "#{@city[2]}"
-    end
-
-    def katakana_town
-      "#{@town[2]}"
-    end
-
-    def katakana_address
-      "#{@prefectural[2]} #{@city[2]} #{@town[2]}"
+    def kanji
+      "#{@prefectural.kanji}#{@city.kanji}#{@town.kanji}"
     end
 
     def to_s
-      kanji_address
+      kanji
+    end
+
+    def prefecture
+      @prefectural
+    end
+
+    def city
+      @city
+    end
+
+    def town
+      @town
+    end
+
+    class Prefecture
+      def kanji
+        @prefectures[0]
+      end
+
+      def to_s
+        kanji
+      end
+
+      def hiragana
+        @prefectures[1]
+      end
+
+      def katakana
+        @prefectures[2]
+      end
+
+      def initialize
+        @prefectures = ADDRESSES['addresses']['prefectural'].sample
+      end
+    end
+
+    class City 
+      def kanji
+        @cities[0]
+      end
+
+      def to_s
+        kanji
+      end
+
+      def hiragana
+        @cities[1]
+      end
+
+      def katakana
+        @cities[2]
+      end
+
+      def initialize
+        @cities = ADDRESSES['addresses']['city'].sample
+      end
+    end
+
+    class Town
+      def kanji
+        @towns[0]
+      end
+
+      def to_s
+        kanji
+      end
+
+      def hiragana
+        @towns[1]
+      end
+
+      def katakana
+        @towns[2]
+      end
+
+      def initialize
+        @towns = ADDRESSES['addresses']['town'].sample
+      end
     end
   end
 end
