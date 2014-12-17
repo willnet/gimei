@@ -3,6 +3,7 @@ require 'yaml'
 
 class Gimei
   NAMES = YAML.load_file(File.expand_path(File.join('..', 'data', 'names.yml'), __FILE__))
+  ADDRESSES = YAML.load_file(File.expand_path(File.join('..', 'data', 'addresses.yml'), __FILE__))
   GENDER = [:male, :female].freeze
 
   class << self
@@ -35,6 +36,22 @@ class Gimei
 
     def last
       new.last
+    end
+
+    def address
+      Address.new
+    end
+
+    def prefecture
+      address.prefecture
+    end
+
+    def city
+      address.city
+    end
+
+    def town
+      address.town
     end
   end
 
@@ -136,6 +153,100 @@ class Gimei
 
     def to_s
       kanji
+    end
+  end
+
+  class Address
+    def initialize
+      @prefectural = Prefecture.new
+      @city = City.new
+      @town = Town.new
+    end
+
+    def kanji
+      "#{@prefectural.kanji}#{@city.kanji}#{@town.kanji}"
+    end
+
+    def to_s
+      kanji
+    end
+
+    def prefecture
+      @prefectural
+    end
+
+    def city
+      @city
+    end
+
+    def town
+      @town
+    end
+
+    class Prefecture
+      def kanji
+        @prefectures[0]
+      end
+
+      def to_s
+        kanji
+      end
+
+      def hiragana
+        @prefectures[1]
+      end
+
+      def katakana
+        @prefectures[2]
+      end
+
+      def initialize
+        @prefectures = ADDRESSES['addresses']['prefectural'].sample
+      end
+    end
+
+    class City 
+      def kanji
+        @cities[0]
+      end
+
+      def to_s
+        kanji
+      end
+
+      def hiragana
+        @cities[1]
+      end
+
+      def katakana
+        @cities[2]
+      end
+
+      def initialize
+        @cities = ADDRESSES['addresses']['city'].sample
+      end
+    end
+
+    class Town
+      def kanji
+        @towns[0]
+      end
+
+      def to_s
+        kanji
+      end
+
+      def hiragana
+        @towns[1]
+      end
+
+      def katakana
+        @towns[2]
+      end
+
+      def initialize
+        @towns = ADDRESSES['addresses']['town'].sample
+      end
     end
   end
 end
