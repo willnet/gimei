@@ -5,7 +5,7 @@
 ## 0.1.0
 
 * サンプルデータの拡充 - [@2celeb](https://github.com/2celeb)
-* `Gimei.male`, `Gimei.female` 等の男女指定用のメソッドを追加 -  [@willnet](https://github.com/willnet)
+* `Gimei.male`, `Gimei.female` 等の男女指定用のメソッドを追加 - [@2celeb](https://github.com/2celeb)
 
 ```ruby
 gimei = Gimei.male
