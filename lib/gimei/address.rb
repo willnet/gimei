@@ -1,4 +1,6 @@
 class Gimei::Address
+  attr_reader :prefecture, :city, :town
+
   def initialize
     @prefecture = Prefecture.new
     @city = City.new
@@ -11,18 +13,6 @@ class Gimei::Address
 
   def to_s
     kanji
-  end
-
-  def prefecture
-    @prefecture
-  end
-
-  def city
-    @city
-  end
-
-  def town
-    @town
   end
 
   class Prefecture
