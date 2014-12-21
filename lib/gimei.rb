@@ -1,6 +1,5 @@
 require 'gimei/version'
-require 'gimei/first'
-require 'gimei/last'
+require 'gimei/name'
 require 'gimei/address'
 require 'yaml'
 
@@ -60,8 +59,7 @@ class Gimei
 
   def initialize(gender = nil)
     @gender = gender || GENDER.sample
-    @first = First.new @gender
-    @last = Last.new
+    @name = Name.new(@gender)
   end
 
   def kanji
@@ -81,11 +79,11 @@ class Gimei
   end
 
   def first
-    @first
+    @name.first
   end
 
   def last
-    @last
+    @name.last
   end
 
   def male?

@@ -103,9 +103,9 @@ describe Gimei do
   end
 end
 
-describe Gimei::First do
+describe Gimei::Name::First do
   describe '.male' do
-    before { @name = Gimei::First.male }
+    before { @name = Gimei::Name::First.male }
 
     it '男性の名前が返ること' do
       @name.male?.must_equal true
@@ -113,7 +113,7 @@ describe Gimei::First do
   end
 
   describe '.female' do
-    before { @name = Gimei::First.female }
+    before { @name = Gimei::Name::First.female }
 
     it '女性の名前が返ること' do
       @name.female?.must_equal true
@@ -121,7 +121,7 @@ describe Gimei::First do
   end
 
   describe '#kanji' do
-    before { @name = Gimei::First.new }
+    before { @name = Gimei::Name::First.new }
 
     it '全角文字が返ること' do
       @name.kanji.must_match /\A#{Moji.zen}+\z/
@@ -129,7 +129,7 @@ describe Gimei::First do
   end
 
   describe '#hiragana' do
-    before { @name = Gimei::First.new }
+    before { @name = Gimei::Name::First.new }
 
     it 'ひらがなが返ること' do
       @name.hiragana.must_match /\A\p{hiragana}+\z/
@@ -137,7 +137,7 @@ describe Gimei::First do
   end
 
   describe '#katakana' do
-    before { @name = Gimei::First.new }
+    before { @name = Gimei::Name::First.new }
 
     it 'カタカナが返ること' do
       @name.katakana.must_match /\A\p{katakana}+\z/
@@ -145,7 +145,7 @@ describe Gimei::First do
   end
 
   describe '#to_s' do
-    before { @name = Gimei::First.new }
+    before { @name = Gimei::Name::First.new }
 
     it '全角文字が返ること' do
       @name.to_s.must_match /\A#{Moji.zen}+\z/
@@ -153,8 +153,8 @@ describe Gimei::First do
   end
 end
 
-describe Gimei::Last do
-  before { @name = Gimei::Last.new }
+describe Gimei::Name::Last do
+  before { @name = Gimei::Name::Last.new }
 
   describe '#kanji' do
     it '全角文字が返ること' do
@@ -180,4 +180,3 @@ describe Gimei::Last do
     end
   end
 end
-
