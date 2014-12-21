@@ -1,6 +1,19 @@
 class Gimei::Name
   attr_reader :first, :last
 
+  class << self
+    extend Forwardable
+    def_delegators :new, :kanji, :hiragana, :katakana, :first, :last
+
+    def male
+      new(:male)
+    end
+
+    def female
+      new(:female)
+    end
+  end
+
   def initialize(gender = nil)
     @gender = gender || Gimei::GENDER.sample
     @first = First.new @gender

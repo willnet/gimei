@@ -20,18 +20,11 @@ class Gimei
     extend Forwardable
 
     def_delegators :name, :kanji, :hiragana, :katakana, :first, :last
+    def_delegators Gimei::Name, :male, :female
     def_delegators :address, :prefecture, :city, :town
 
     def name
       Name.new
-    end
-
-    def male
-      Name.new(:male)
-    end
-
-    def female
-      Name.new(:female)
     end
 
     def address
