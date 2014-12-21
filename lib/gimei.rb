@@ -1,8 +1,8 @@
+require 'forwardable'
+require 'yaml'
 require 'gimei/version'
 require 'gimei/name'
 require 'gimei/address'
-require 'yaml'
-require 'forwardable'
 
 class Gimei
   extend Forwardable
