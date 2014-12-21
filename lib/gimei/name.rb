@@ -2,9 +2,32 @@ class Gimei::Name
   attr_reader :first, :last
 
   def initialize(gender = nil)
+    @gender = gender || Gimei::GENDER.sample
     @first = First.new @gender
     @last = Last.new
   end
+
+  def kanji
+    "#{last.kanji} #{first.kanji}"
+  end
+
+  def hiragana
+    "#{last.hiragana} #{first.hiragana}"
+  end
+
+  def katakana
+    "#{last.katakana} #{first.katakana}"
+  end
+
+  def male?
+    @gender == :male
+  end
+
+  def female?
+    @gender == :female
+  end
+
+  alias_method :to_s, :kanji
 
   class First
     class << self
@@ -42,9 +65,7 @@ class Gimei::Name
       @name[2]
     end
 
-    def to_s
-      kanji
-    end
+    alias_method :to_s, :kanji
   end
 
   class Last
@@ -64,8 +85,6 @@ class Gimei::Name
       @name[2]
     end
 
-    def to_s
-      kanji
-    end
+    alias_method :to_s, :kanji
   end
 end

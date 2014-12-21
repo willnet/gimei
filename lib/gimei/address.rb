@@ -11,17 +11,11 @@ class Gimei::Address
     "#{@prefecture.kanji}#{@city.kanji}#{@town.kanji}"
   end
 
-  def to_s
-    kanji
-  end
+  alias_method :to_s, :kanji
 
   class Prefecture
     def kanji
       @prefectures[0]
-    end
-
-    def to_s
-      kanji
     end
 
     def hiragana
@@ -35,15 +29,13 @@ class Gimei::Address
     def initialize
       @prefectures = Gimei::ADDRESSES['addresses']['prefecture'].sample
     end
+
+    alias_method :to_s, :kanji
   end
 
   class City
     def kanji
       @cities[0]
-    end
-
-    def to_s
-      kanji
     end
 
     def hiragana
@@ -57,15 +49,13 @@ class Gimei::Address
     def initialize
       @cities = Gimei::ADDRESSES['addresses']['city'].sample
     end
+
+    alias_method :to_s, :kanji
   end
 
   class Town
     def kanji
       @towns[0]
-    end
-
-    def to_s
-      kanji
     end
 
     def hiragana
@@ -79,5 +69,7 @@ class Gimei::Address
     def initialize
       @towns = Gimei::ADDRESSES['addresses']['town'].sample
     end
+
+    alias_method :to_s, :kanji
   end
 end
