@@ -8,7 +8,15 @@ class Gimei::Address
   end
 
   def kanji
-    "#{@prefecture.kanji}#{@city.kanji}#{@town.kanji}"
+    "#{prefecture.kanji}#{city.kanji}#{town.kanji}"
+  end
+
+  def hiragana
+    "#{prefecture.hiragana}#{city.hiragana}#{town.hiragana}"
+  end
+
+  def katakana
+    "#{prefecture.katakana}#{city.katakana}#{town.katakana}"
   end
 
   alias_method :to_s, :kanji

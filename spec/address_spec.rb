@@ -22,6 +22,7 @@ describe Gimei do
   end
 
   it 'ひらがなが返ること' do
+    Gimei.address.hiragana.must_match /\A[\p{hiragana}]+\z/
     Gimei.address.prefecture.hiragana.must_match /\A[\p{hiragana}]+\z/
     Gimei.address.city.hiragana.must_match /\A[\p{hiragana}]+\z/
     Gimei.address.town.hiragana.must_match /\A[\p{hiragana}]+\z/
@@ -32,6 +33,7 @@ describe Gimei do
   end
 
   it 'カタカナが返ること' do
+    Gimei.address.katakana.must_match /\A[\p{katakana}]+\z/
     Gimei.address.prefecture.katakana.must_match /\A[\p{katakana}]+\z/
     Gimei.address.city.katakana.must_match /\A[\p{katakana}]+\z/
     Gimei.address.town.katakana.must_match /\A[\p{katakana}]+\z/
