@@ -15,7 +15,7 @@ gimei は、日本人の名前や、日本の住所をランダムに返すラ�
 下記のように使います。
 
 ```ruby
-gimei = Gimei.new
+gimei = Gimei.name
 gimei.kanji #=> "斎藤 陽菜"
 gimei.hiragana #=> "さいとう はるな"
 gimei.katakana #=> "サイトウ ハルナ"
@@ -27,7 +27,7 @@ gimei.first.hiragana #=> "はるな"
 gimei.first.katakana #=> "ハルナ"
 ```
 
-下記のように男性／女性の名前を返すことを明示的に指定できます。`Gimei.new` の場合は男女の名前を等確率で返します。
+下記のように男性／女性の名前を返すことを明示的に指定できます。`Gimei.name` の場合は男女の名前を等確率で返します。
 
 ```ruby
 gimei = Gimei.male
@@ -65,6 +65,8 @@ Gimei.first.katakana #=> "ヤマト"
 address = Gimei.address
 address.kanji                 # => 岡山県大島郡大和村稲木町
 address.to_s                  # => 岡山県大島郡大和村稲木町
+address.hiragana              # => おかやまけんおおしまぐんやまとそんいなぎちょう
+address.katakana              # => オカヤマケンオオシマグンヤマトソンイナギチョウ
 
 address.prefecture.kanji      # => 岡山県
 address.prefecture.to_s       # => 岡山県
