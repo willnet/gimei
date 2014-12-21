@@ -5,10 +5,12 @@
 [![Gem Version](https://badge.fury.io/rb/gimei.png)](http://badge.fury.io/rb/gimei)
 [![endorse](https://api.coderwall.com/willnet/endorsecount.png)](https://coderwall.com/willnet)
 
-gimei は、日本人の名前をランダムに返すライブラリです。テストの時などに使います。似たようなライブラリに[faker](https://github.com/stympy/faker)があります。[faker](https://github.com/stympy/faker)はとても優れたライブラリで、多言語対応もしていますが、ふりがな(フリガナ)は流石に対応していません。gimei は名前のふりがな(及びフリガナ)に対応しています。
+gimei は、日本人の名前や、日本の住所をランダムに返すライブラリです。テストの時などに使います。似たようなライブラリに[faker](https://github.com/stympy/faker)があります。[faker](https://github.com/stympy/faker)はとても優れたライブラリで、多言語対応もしていますが、ふりがな(フリガナ)は流石に対応していません。gimei ふりがな(及びフリガナ)に対応しています。
 
 
-## Usage
+## 使い方
+
+### 名前をランダムで返す
 
 下記のように使います。
 
@@ -55,6 +57,8 @@ Gimei.first.katakana #=> "ヤマト"
 
 出力される名前の候補となるデータは `lib/data/names.yml` にあるので、必要であればファイルを修正してください。
 
+### 住所をランダムで返す
+
 バージョン0.2.0からは、住所情報も取得できるようになりました。都道府県、区、市、町を組み合わせた住所情報を漢字、ひらがな、カタカナで取得することができます。
 
 ```ruby
@@ -95,6 +99,8 @@ Gimei.town.to_s               # => 富久山町南小泉
 Gimei.town.hiragana           # => じょうしんでん
 Gimei.town.katakana           # => イケナイ
 ```
+
+出力される住所の候補となるデータは `lib/data/addresses.yml` にあるので、必要であればファイルを修正してください。
 
 ## Installation
 

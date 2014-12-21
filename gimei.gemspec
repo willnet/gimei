@@ -9,8 +9,8 @@ Gem::Specification.new do |gem|
   gem.authors       = ["willnet"]
   gem.email         = ["netwillnet@gmail.com"]
   gem.license       = "MIT"
-  gem.description   = %q{random Japanese name generator}
-  gem.summary       = %q{random Japanese name generator. support kanji, hiragana, and katakana}
+  gem.description   = %q{random Japanese name and address generator}
+  gem.summary       = %q{random Japanese name and address generator. support kanji, hiragana, and katakana}
   gem.homepage      = "https://github.com/willnet/gimei"
 
   gem.files         = `git ls-files`.split($/)
