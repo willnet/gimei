@@ -14,6 +14,8 @@ class Gimei
   def_delegators :@name, :kanji, :hiragana, :katakana, :first, :last, :male?, :female?
   alias_method :to_s, :kanji
 
+  attr_reader :name, :address
+
   class << self
     extend Forwardable
 
@@ -39,5 +41,6 @@ class Gimei
 
   def initialize(gender = nil)
     @name = Name.new(gender)
+    @address = Address.new
   end
 end
