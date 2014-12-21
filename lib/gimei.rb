@@ -158,13 +158,13 @@ class Gimei
 
   class Address
     def initialize
-      @prefectural = Prefecture.new
+      @prefecture = Prefecture.new
       @city = City.new
       @town = Town.new
     end
 
     def kanji
-      "#{@prefectural.kanji}#{@city.kanji}#{@town.kanji}"
+      "#{@prefecture.kanji}#{@city.kanji}#{@town.kanji}"
     end
 
     def to_s
@@ -172,7 +172,7 @@ class Gimei
     end
 
     def prefecture
-      @prefectural
+      @prefecture
     end
 
     def city
@@ -201,11 +201,11 @@ class Gimei
       end
 
       def initialize
-        @prefectures = ADDRESSES['addresses']['prefectural'].sample
+        @prefectures = ADDRESSES['addresses']['prefecture'].sample
       end
     end
 
-    class City 
+    class City
       def kanji
         @cities[0]
       end
