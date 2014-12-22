@@ -122,15 +122,33 @@ describe Gimei do
     end
   end
 
+  describe '#prefecture' do
+    it 'Gimei::Address::Prefecture オブジェクトが返ること' do
+      Gimei.new.prefecture.must_be_instance_of Gimei::Address::Prefecture
+    end
+  end
+
   describe '.city' do
     it 'Gimei::Address::City オブジェクトが返ること' do
       Gimei.city.must_be_instance_of Gimei::Address::City
     end
   end
 
+  describe '#city' do
+    it 'Gimei::Address::City オブジェクトが返ること' do
+      Gimei.new.city.must_be_instance_of Gimei::Address::City
+    end
+  end
+
   describe '.town' do
     it 'Gimei::Address::Town オブジェクトが返ること' do
       Gimei.town.must_be_instance_of Gimei::Address::Town
+    end
+  end
+
+  describe '#town' do
+    it 'Gimei::Address::Town オブジェクトが返ること' do
+      Gimei.new.town.must_be_instance_of Gimei::Address::Town
     end
   end
 end
