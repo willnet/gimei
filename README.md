@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/willnet/gimei.png)](https://travis-ci.org/willnet/gimei)
 [![Coverage Status](https://coveralls.io/repos/willnet/gimei/badge.png)](https://coveralls.io/r/willnet/gimei)
+[![Code Climate](https://codeclimate.com/github/willnet/gimei/badges/gpa.svg)](https://codeclimate.com/github/willnet/gimei)
 [![Gem Version](https://badge.fury.io/rb/gimei.png)](http://badge.fury.io/rb/gimei)
 [![endorse](https://api.coderwall.com/willnet/endorsecount.png)](https://coderwall.com/willnet)
 
