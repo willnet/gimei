@@ -17,13 +17,13 @@ gimei は、日本人の名前や、日本の住所をランダムに返すラ�
 
 ```ruby
 gimei = Gimei.name
-gimei.kanji #=> "斎藤 陽菜"
-gimei.hiragana #=> "さいとう はるな"
-gimei.katakana #=> "サイトウ ハルナ"
-gimei.last.kanji #=> "斎藤"
-gimei.last.hiragana #=> "さいとう"
-gimei.last.katakana #=> "サイトウ"
-gimei.first.kanji #=> "陽菜"
+gimei.kanji          #=> "斎藤 陽菜"
+gimei.hiragana       #=> "さいとう はるな"
+gimei.katakana       #=> "サイトウ ハルナ"
+gimei.last.kanji     #=> "斎藤"
+gimei.last.hiragana  #=> "さいとう"
+gimei.last.katakana  #=> "サイトウ"
+gimei.first.kanji    #=> "陽菜"
 gimei.first.hiragana #=> "はるな"
 gimei.first.katakana #=> "ハルナ"
 ```
@@ -32,26 +32,26 @@ gimei.first.katakana #=> "ハルナ"
 
 ```ruby
 gimei = Gimei.male
-gimei.male? #=> true
+gimei.male?   #=> true
 gimei.female? #=> false
-gimei.kanji #=> "小林 顕士"
+gimei.kanji   #=> "小林 顕士"
 
 gimei = Gimei.female
-gimei.male? #=> false
+gimei.male?   #=> false
 gimei.female? #=> true
-gimei.kanji #=> "根本 彩世"
+gimei.kanji   #=> "根本 彩世"
 ```
 
 漢字、ひらがな、カタカナどれか一種類だけ取得できればよい場合には、下記のように短縮して書くことも出来ます。
 
 ```ruby
-Gimei.kanji #=> "伊藤 結衣"
-Gimei.hiragana #=> "いとう みさき"
-Gimei.katakana #=> "タカハシ ユイナ"
-Gimei.last.kanji #=> "清水"
-Gimei.last.hiragana #=> "いとう"
-Gimei.last.katakana #=> "コバヤシ"
-Gimei.first.kanji #=> "結菜"
+Gimei.kanji          #=> "伊藤 結衣"
+Gimei.hiragana       #=> "いとう みさき"
+Gimei.katakana       #=> "タカハシ ユイナ"
+Gimei.last.kanji     #=> "清水"
+Gimei.last.hiragana  #=> "いとう"
+Gimei.last.katakana  #=> "コバヤシ"
+Gimei.first.kanji    #=> "結菜"
 Gimei.first.hiragana #=> "ここあ"
 Gimei.first.katakana #=> "ヤマト"
 ```
