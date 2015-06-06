@@ -105,11 +105,12 @@ Gimei.town.katakana           # => イケナイ
 
 出力される住所の候補となるデータは `lib/data/addresses.yml` にあるので、必要であればファイルを修正してください。
 
-## 多言語による実装
+## 他言語による実装
 
 - [mattn/go-gimei](https://github.com/mattn/go-gimei)
 - [moznion/gimei-java](https://github.com/moznion/gimei-java)
 - [nabetama/gimei](https://github.com/nabetama/gimei)
+- [gongo/emacs-gimei](https://github.com/gongo/emacs-gimei)
 
 ## Installation
 
