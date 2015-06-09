@@ -111,6 +111,7 @@ Gimei.town.katakana           # => イケナイ
 - [moznion/gimei-java](https://github.com/moznion/gimei-java)
 - [nabetama/gimei](https://github.com/nabetama/gimei)
 - [gongo/emacs-gimei](https://github.com/gongo/emacs-gimei)
+- [ma2gedev/gimei_ex](https://github.com/ma2gedev/gimei_ex)
 
 ## Installation
 
