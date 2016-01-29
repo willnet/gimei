@@ -120,6 +120,7 @@ Gimei.town.katakana           # => イケナイ
 - [nabetama/gimei](https://github.com/nabetama/gimei)
 - [gongo/emacs-gimei](https://github.com/gongo/emacs-gimei)
 - [ma2gedev/gimei_ex](https://github.com/ma2gedev/gimei_ex)
+- [demiglacesource/node-gimei](https://github.com/demiglacesource/node-gimei)
 
 ## Installation
 
