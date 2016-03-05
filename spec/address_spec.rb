@@ -2,7 +2,6 @@
 require_relative 'spec_helper'
 
 describe Gimei do
-
   it '全角文字が返ること' do
     Gimei.address.kanji.must_match(/\A[#{Moji.zen}]+\z/)
     Gimei.address.to_s.must_match(/\A[#{Moji.zen}]+\z/)
@@ -42,5 +41,4 @@ describe Gimei do
     Gimei.city.katakana.must_match(/\A[\p{katakana}]+\z/)
     Gimei.town.katakana.must_match(/\A[\p{katakana}]+\z/)
   end
-
 end
