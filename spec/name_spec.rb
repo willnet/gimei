@@ -28,37 +28,37 @@ describe Gimei::Name do
 
   describe '.kanji' do
     it '全角文字とスペースが返ること' do
-      Gimei::Name.kanji.must_match /\A[#{Moji.zen}\s]+\z/
+      Gimei::Name.kanji.must_match(/\A[#{Moji.zen}\s]+\z/)
     end
   end
 
   describe '.hiragana' do
     it 'ひらがなとスペースが返ること' do
-      Gimei::Name.hiragana.must_match /\A[\p{hiragana}\s]+\z/
+      Gimei::Name.hiragana.must_match(/\A[\p{hiragana}\s]+\z/)
     end
   end
 
   describe '.katakana' do
     it 'カタカナとスペースが返ること' do
-      Gimei::Name.katakana.must_match /\A[\p{katakana}\s]+\z/
+      Gimei::Name.katakana.must_match(/\A[\p{katakana}\s]+\z/)
     end
   end
 
   describe '#kanji' do
     it '全角文字とスペースが返ること' do
-      Gimei::Name.new.kanji.must_match /\A[#{Moji.zen}\s]+\z/
+      Gimei::Name.new.kanji.must_match(/\A[#{Moji.zen}\s]+\z/)
     end
   end
 
   describe '#hiragana' do
     it 'ひらがなとスペースが返ること' do
-      Gimei::Name.new.hiragana.must_match /\A[\p{hiragana}\s]+\z/
+      Gimei::Name.new.hiragana.must_match(/\A[\p{hiragana}\s]+\z/)
     end
   end
 
   describe '#katakana' do
     it 'カタカナとスペースが返ること' do
-      Gimei::Name.new.katakana.must_match /\A[\p{katakana}\s]+\z/
+      Gimei::Name.new.katakana.must_match(/\A[\p{katakana}\s]+\z/)
     end
   end
 
@@ -102,25 +102,25 @@ describe Gimei::Name::First do
 
   describe '#kanji' do
     it '全角文字が返ること' do
-      Gimei::Name::First.new.kanji.must_match /\A#{Moji.zen}+\z/
+      Gimei::Name::First.new.kanji.must_match(/\A#{Moji.zen}+\z/)
     end
   end
 
   describe '#hiragana' do
     it 'ひらがなが返ること' do
-      Gimei::Name::First.new.hiragana.must_match /\A\p{hiragana}+\z/
+      Gimei::Name::First.new.hiragana.must_match(/\A\p{hiragana}+\z/)
     end
   end
 
   describe '#katakana' do
     it 'カタカナが返ること' do
-      Gimei::Name::First.new.katakana.must_match /\A\p{katakana}+\z/
+      Gimei::Name::First.new.katakana.must_match(/\A\p{katakana}+\z/)
     end
   end
 
   describe '#to_s' do
     it '全角文字が返ること' do
-      Gimei::Name::First.new.to_s.must_match /\A#{Moji.zen}+\z/
+      Gimei::Name::First.new.to_s.must_match(/\A#{Moji.zen}+\z/)
     end
   end
 end
@@ -130,25 +130,25 @@ describe Gimei::Name::Last do
 
   describe '#kanji' do
     it '全角文字が返ること' do
-      @name.kanji.must_match /\A#{Moji.zen}+\z/
+      @name.kanji.must_match(/\A#{Moji.zen}+\z/)
     end
   end
 
   describe '#hiragana' do
     it 'ひらがなが返ること' do
-      @name.hiragana.must_match /\A\p{hiragana}+\z/
+      @name.hiragana.must_match(/\A\p{hiragana}+\z/)
     end
   end
 
   describe '#katakana' do
     it 'カタカナが返ること' do
-      @name.katakana.must_match /\A\p{katakana}+\z/
+      @name.katakana.must_match(/\A\p{katakana}+\z/)
     end
   end
 
   describe '#to_s' do
     it '全角文字が返ること' do
-      @name.to_s.must_match /\A#{Moji.zen}+\z/
+      @name.to_s.must_match(/\A#{Moji.zen}+\z/)
     end
   end
 end
