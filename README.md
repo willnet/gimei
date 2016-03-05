@@ -1,9 +1,9 @@
 # Gimei
 
-[![Build Status](https://travis-ci.org/willnet/gimei.png)](https://travis-ci.org/willnet/gimei)
-[![Coverage Status](https://coveralls.io/repos/willnet/gimei/badge.png)](https://coveralls.io/r/willnet/gimei)
+[![Travis](https://img.shields.io/travis/willnet/gimei.svg)](https://travis-ci.org/willnet/gimei)
+[![Coveralls](https://coveralls.io/repos/willnet/gimei/badge.svg)](https://coveralls.io/r/willnet/gimei)
 [![Code Climate](https://codeclimate.com/github/willnet/gimei/badges/gpa.svg)](https://codeclimate.com/github/willnet/gimei)
-[![Gem Version](https://badge.fury.io/rb/gimei.png)](http://badge.fury.io/rb/gimei)
+[![Gem](https://img.shields.io/gem/v/gimei.svg)](https://rubygems.org/gems/gimei)
 
 gimei は、日本人の名前や、日本の住所をランダムに返すライブラリです。テストの時などに使います。似たようなライブラリに[faker](https://github.com/stympy/faker)があります。[faker](https://github.com/stympy/faker)はとても優れたライブラリで、多言語対応もしていますが、ふりがな(フリガナ)は流石に対応していません。gimei はふりがな(及びフリガナ)に対応しています。
 
