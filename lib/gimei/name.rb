@@ -1,3 +1,5 @@
+require 'romaji'
+
 class Gimei::Name
   attr_reader :first, :last
 
@@ -54,7 +56,7 @@ class Gimei::Name
     end
 
     extend Forwardable
-    def_delegators :@name, :kanji, :hiragana, :katakana, :to_s
+    def_delegators :@name, :kanji, :hiragana, :katakana, :to_s, :romaji
 
     def initialize(gender = nil)
       @gender = gender || Gimei::GENDER.sample
@@ -72,7 +74,7 @@ class Gimei::Name
 
   class Last
     extend Forwardable
-    def_delegators :@name, :kanji, :hiragana, :katakana, :to_s
+    def_delegators :@name, :kanji, :hiragana, :katakana, :to_s, :romaji
 
     def initialize
       @name = NameWord.new(Gimei::NAMES['last_name'].sample)
@@ -94,6 +96,10 @@ class Gimei::Name
 
     def katakana
       @name[2]
+    end
+
+    def romaji
+      Romaji.kana2romaji hiragana
     end
 
     alias_method :to_s, :kanji

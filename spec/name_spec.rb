@@ -123,6 +123,12 @@ describe Gimei::Name::First do
       Gimei::Name::First.new.to_s.must_match(/\A#{Moji.zen}+\z/)
     end
   end
+
+  describe '#romaji' do
+    it 'アルファベットで返ること' do
+      Gimei::Name::First.new.romaji.must_match(/\A[a-zA-Z]+\z/)
+    end
+  end
 end
 
 describe Gimei::Name::Last do
@@ -149,6 +155,12 @@ describe Gimei::Name::Last do
   describe '#to_s' do
     it '全角文字が返ること' do
       @name.to_s.must_match(/\A#{Moji.zen}+\z/)
+    end
+  end
+
+  describe '#romaji' do
+    it 'アルファベットで返ること' do
+      Gimei::Name::First.new.romaji.must_match(/\A[a-z|A-Z]+\z/)
     end
   end
 end
