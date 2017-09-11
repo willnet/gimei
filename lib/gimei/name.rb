@@ -5,7 +5,7 @@ class Gimei::Name
 
   class << self
     extend Forwardable
-    def_delegators :new, :kanji, :hiragana, :katakana, :first, :last
+    def_delegators :new, :kanji, :hiragana, :katakana, :first, :last, :romaji
 
     def male
       new(:male)
@@ -32,6 +32,10 @@ class Gimei::Name
 
   def katakana
     "#{last.katakana} #{first.katakana}"
+  end
+
+  def romaji
+    "#{first.romaji} #{last.romaji}"
   end
 
   def male?
