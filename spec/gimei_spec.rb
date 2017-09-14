@@ -104,6 +104,18 @@ describe Gimei do
     end
   end
 
+  describe '.romaji' do
+    it 'ローマ字とスペースが返ること' do
+      Gimei.romaji.must_match(/\A[a-zA-Z\s]+\z/)
+    end
+  end
+
+  describe '#romaji' do
+    it 'ローマ字とスペースが返ること' do
+      Gimei.new.romaji.must_match(/\A[a-zA-Z\s]+\z/)
+    end
+  end
+
   describe '.address' do
     it 'Gimei::Address オブジェクトが返ること' do
       Gimei.address.must_be_instance_of Gimei::Address
