@@ -1,3 +1,7 @@
+## 0.3.0
+
+* ローマ字対応 - [@takkanm](https://github.com/takkanm)
+
 ## 0.2.0
 
 * 住所対応 - [@miyohide](https://github.com/miyohide)
