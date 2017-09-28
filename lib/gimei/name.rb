@@ -103,7 +103,7 @@ class Gimei::Name
     end
 
     def romaji
-      Romaji.kana2romaji hiragana
+      Romaji.kana2romaji(hiragana).capitalize
     end
 
     alias_method :to_s, :kanji
