@@ -19,12 +19,15 @@ gimei = Gimei.name
 gimei.kanji          #=> "斎藤 陽菜"
 gimei.hiragana       #=> "さいとう はるな"
 gimei.katakana       #=> "サイトウ ハルナ"
+gimei.romaji         #=> "Haruna Saitou"
 gimei.last.kanji     #=> "斎藤"
 gimei.last.hiragana  #=> "さいとう"
 gimei.last.katakana  #=> "サイトウ"
+gimei.last.romaji    #=> "Saitou"
 gimei.first.kanji    #=> "陽菜"
 gimei.first.hiragana #=> "はるな"
 gimei.first.katakana #=> "ハルナ"
+gimei.first.romaji   #=> "Haruna"
 ```
 
 下記のように男性／女性の名前を返すことを明示的に指定できます。`Gimei.name` の場合は男女の名前を等確率で返します。
@@ -41,18 +44,21 @@ gimei.female? #=> true
 gimei.kanji   #=> "根本 彩世"
 ```
 
-漢字、ひらがな、カタカナどれか一種類だけ取得できればよい場合には、下記のように短縮して書くことも出来ます。
+漢字、ひらがな、カタカナ、ローマ字どれか一種類だけ取得できればよい場合には、下記のように短縮して書くことも出来ます。
 
 ```ruby
 Gimei.kanji          #=> "伊藤 結衣"
 Gimei.hiragana       #=> "いとう みさき"
 Gimei.katakana       #=> "タカハシ ユイナ"
+Gimei.romaji         #=> "Miki Obara"
 Gimei.last.kanji     #=> "清水"
 Gimei.last.hiragana  #=> "いとう"
 Gimei.last.katakana  #=> "コバヤシ"
+Gimei.last.romaji    #=> "Wakabayashi"
 Gimei.first.kanji    #=> "結菜"
 Gimei.first.hiragana #=> "ここあ"
 Gimei.first.katakana #=> "ヤマト"
+Gimei.first.romaji   #=> "Noriyuki"
 ```
 
 出力される名前の候補となるデータは `lib/data/names.yml` にあるので、必要であればファイルを修正してください。
@@ -67,21 +73,25 @@ address.kanji                 # => 岡山県大島郡大和村稲木町
 address.to_s                  # => 岡山県大島郡大和村稲木町
 address.hiragana              # => おかやまけんおおしまぐんやまとそんいなぎちょう
 address.katakana              # => オカヤマケンオオシマグンヤマトソンイナギチョウ
+address.romaji                # => Okayamaken Ooshimagunyamatoson Inagicho
 
 address.prefecture.kanji      # => 岡山県
 address.prefecture.to_s       # => 岡山県
 address.prefecture.hiragana   # => おかやまけん
 address.prefecture.katakana   # => オカヤマケン
+address.prefecture.romaji     # => Okayamaken
 
 address.city.kanji            # => 大島郡大和村
 address.city.to_s             # => 大島郡大和村
 address.city.hiragana         # => おおしまぐんやまとそん
 address.city.katakana         # => オオシマグンヤマトソン
+address.city.romaji           # => Ooshimagunyamatoson
 
 address.town.kanji            # => 稲木町
 address.town.to_s             # => 稲木町
 address.town.hiragana         # => いなぎちょう
 address.town.katakana         # => イナギチョウ
+address.town.romaji           # => Inagicho
 ```
 
 省略形も用意しています。
@@ -91,15 +101,18 @@ Gimei.prefecture.kanji        # => 青森県
 Gimei.prefecture.to_s         # => 滋賀県
 Gimei.prefecture.hiragana     # => やまがたけん
 Gimei.prefecture.katakana     # => チバケン
+Gimei.prefecture.romaji       # => Wakayamaken
 
 Gimei.city.kanji              # => 利根郡昭和村
 Gimei.city.hiragana           # => うべし
 Gimei.city.katakana           # => カモグンヤオツチョウ
+Gimei.city.romaji             # => Itanogunaizumichou
 
 Gimei.town.kanji              # => 竹野
 Gimei.town.to_s               # => 富久山町南小泉
 Gimei.town.hiragana           # => じょうしんでん
 Gimei.town.katakana           # => イケナイ
+Gimei.town.romaji             # => Heisei
 ```
 
 出力される住所の候補となるデータは `lib/data/addresses.yml` にあるので、必要であればファイルを修正してください。
