@@ -19,6 +19,10 @@ class Gimei::Address
     "#{prefecture.katakana}#{city.katakana}#{town.katakana}"
   end
 
+  def romaji
+    "#{prefecture.romaji} #{city.romaji} #{town.romaji}"
+  end
+
   alias_method :to_s, :kanji
 
   class Prefecture
@@ -32,6 +36,10 @@ class Gimei::Address
 
     def katakana
       @prefectures[2]
+    end
+
+    def romaji
+      Romaji.kana2romaji(hiragana).capitalize
     end
 
     def initialize
@@ -54,6 +62,10 @@ class Gimei::Address
       @cities[2]
     end
 
+    def romaji
+      Romaji.kana2romaji(hiragana).capitalize
+    end
+
     def initialize
       @cities = Gimei::ADDRESSES['addresses']['city'].sample
     end
@@ -72,6 +84,10 @@ class Gimei::Address
 
     def katakana
       @towns[2]
+    end
+
+    def romaji
+      Romaji.kana2romaji(hiragana).capitalize
     end
 
     def initialize
