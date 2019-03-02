@@ -126,6 +126,7 @@ Gimei.town.romaji             # => Heisei
 - 2.3.x
 - 2.4.x
 - 2.5.x
+- 2.6.x
 
 ## 他言語による実装
 
