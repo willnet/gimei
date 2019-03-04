@@ -137,6 +137,7 @@ Gimei.town.romaji             # => Heisei
 - [ma2gedev/gimei_ex](https://github.com/ma2gedev/gimei_ex)
 - [demiglacesource/node-gimei](https://github.com/demiglacesource/node-gimei)
 - [matarillo/dot-gimei](https://github.com/matarillo/dot-gimei)
+- [abcb2/type-gimei](https://github.com/abcb2/type-gimei)
 
 ## Installation
 
