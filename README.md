@@ -61,6 +61,11 @@ Gimei.first.katakana #=> "ヤマト"
 Gimei.first.romaji   #=> "Noriyuki"
 ```
 
+ユニークな名前を取得するには、以下のようにします。
+```ruby
+gimei = Gimei.unique.name
+```
+
 出力される名前の候補となるデータは `lib/data/names.yml` にあるので、必要であればファイルを修正してください。
 
 ### 住所をランダムで返す
@@ -113,6 +118,11 @@ Gimei.town.to_s               # => 富久山町南小泉
 Gimei.town.hiragana           # => じょうしんでん
 Gimei.town.katakana           # => イケナイ
 Gimei.town.romaji             # => Heisei
+```
+
+ユニークな名前を取得するには、以下のようにします。
+```ruby
+address = Gimei.unique.address
 ```
 
 出力される住所の候補となるデータは `lib/data/addresses.yml` にあるので、必要であればファイルを修正してください。
