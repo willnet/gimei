@@ -21,9 +21,9 @@ class UniqueGenerator
     @max_retries.times do
       result = @generator.public_send(name, *arguments)
 
-      next if @previous_results[[name, arguments]].include?(result)
+      next if @previous_results[[name, arguments]].include?(result.to_s)
 
-      @previous_results[[name, arguments]] << result
+      @previous_results[[name, arguments]] << result.to_s
       return result
     end
 
