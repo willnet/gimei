@@ -163,4 +163,24 @@ describe Gimei do
       Gimei.new.town.must_be_instance_of Gimei::Address::Town
     end
   end
+
+  describe '.unique address' do
+    it 'ユニークなアドレスが返ること' do
+      unique_addresses = Array.new(100) do
+        Gimei.unique.address.to_s
+      end
+
+      assert_equal(unique_addresses.uniq, unique_addresses)
+    end
+  end
+
+  describe '.unique name' do
+    it 'ユニークな名前が返ること' do
+      unique_names = Array.new(100) do
+        Gimei.unique.name.to_s
+      end
+
+      assert_equal(unique_names.uniq, unique_names)
+    end
+  end
 end
