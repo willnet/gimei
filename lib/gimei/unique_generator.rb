@@ -15,6 +15,10 @@ class UniqueGenerator
     @previous_results = Hash.new { |hash, key| hash[key] = Set.new }
   end
 
+  def set_max_retries(num)
+    @max_retries = num
+  end
+
   def method_missing(name, *arguments)
     self.class.marked_unique.add(self)
 
@@ -41,7 +45,7 @@ class UniqueGenerator
     marked_unique.clear
   end
 
-  def exclude(name, arguments, value)
+  def exclude(name, arguments, values)
     values ||= []
     values.each do |value|
       @previous_results[[name, arguments]] << value

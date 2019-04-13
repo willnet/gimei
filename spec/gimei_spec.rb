@@ -164,23 +164,71 @@ describe Gimei do
     end
   end
 
-  describe '.unique address' do
+  describe '.unique#address' do
     it 'ユニークなアドレスが返ること' do
-      unique_addresses = Array.new(100) do
+      Gimei.unique.set_max_retries(10000)
+      unique_addresses = Array.new(10000) do
         Gimei.unique.address.to_s
       end
-
       assert_equal(unique_addresses.uniq, unique_addresses)
+    end
+
+    it '例外が発生すること' do
+      Gimei.unique.set_max_retries(1)
+      expect{
+        loop do
+          Gimei.unique.address
+        end
+      }.must_raise UniqueGenerator::RetryLimitExceeded
     end
   end
 
-  describe '.unique name' do
+  describe '.unique#name' do
     it 'ユニークな名前が返ること' do
-      unique_names = Array.new(100) do
+      Gimei.unique.set_max_retries(10000)
+      unique_names = Array.new(10000) do
         Gimei.unique.name.to_s
       end
 
       assert_equal(unique_names.uniq, unique_names)
     end
+
+    it '例外が発生すること' do
+      Gimei.unique.set_max_retries(1)
+      expect{
+        loop do
+          Gimei.unique.name
+        end
+      }.must_raise UniqueGenerator::RetryLimitExceeded
+    end
   end
+
+  describe '.unique#clear' do
+    it '過去の検索結果が消えていること' do
+      Gimei.unique.name
+      Gimei.unique.clear
+      expect(Gimei.unique.instance_variable_get(:@previous_results)).must_be_empty
+    end
+  end
+
+  describe '.unique.clear' do
+    it '過去の検索結果が消えていること' do
+      Gimei.unique.name
+      Gimei.unique.address
+      UniqueGenerator.clear
+      expect(Gimei.unique.instance_variable_get(:@previous_results)).must_be_empty
+    end
+  end
+
+  describe '.unique#exclude' do
+    it '除外した値が取得されないこと' do
+      Gimei.unique.set_max_retries(10000)
+      Gimei.unique.exclude(:address, [], ["大分県釧路郡釧路町平野"])
+      unique_addresses = Array.new(10000) do
+        Gimei.unique.address.to_s
+      end
+      expect(unique_addresses).wont_include "大分県釧路郡釧路町平野"
+    end
+  end
+
 end
