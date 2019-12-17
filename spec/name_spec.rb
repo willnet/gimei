@@ -9,6 +9,10 @@ describe Gimei::Name do
       _(@name).must_be_instance_of Gimei::Name
     end
 
+    it '#gender が :male を返すこと' do
+      _(@name.gender).must_equal :male
+    end
+
     it '#male? が true を返すこと' do
       _(@name.male?).must_equal true
     end
@@ -19,6 +23,10 @@ describe Gimei::Name do
 
     it 'Gimei::Name オブジェクトが返ること' do
       _(@name).must_be_instance_of Gimei::Name
+    end
+
+    it '#gender が :female を返すこと' do
+      _(@name.gender).must_equal :female
     end
 
     it '#female? が true を返すこと' do
@@ -47,6 +55,13 @@ describe Gimei::Name do
   describe '.romaji' do
     it 'ローマ字とスペースが返ること' do
       _(Gimei::Name.romaji).must_match(/\A[a-zA-Z\s]+\z/)
+    end
+  end
+
+  describe '#gender' do
+    it ':male または :female が返ること' do
+      _(Gimei::Name.new.gender).must_be_instance_of(Symbol)
+      _(Gimei::Name.new.gender.to_s).must_match(/\A(?:male|female)\Z/)
     end
   end
 
