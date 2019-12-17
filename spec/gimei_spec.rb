@@ -28,43 +28,43 @@ describe Gimei do
 
   describe '#kanji' do
     it '全角文字とスペースが返ること' do
-      _(Gimei.new.kanji).must_match /\A[#{Moji.zen}\s]+\z/
+      _(Gimei.new.kanji).must_match(/\A[#{Moji.zen}\s]+\z/)
     end
   end
 
   describe '#to_s' do
     it '全角文字とスペースが返ること' do
-      _(Gimei.new.to_s).must_match /\A[#{Moji.zen}\s]+\z/
+      _(Gimei.new.to_s).must_match(/\A[#{Moji.zen}\s]+\z/)
     end
   end
 
   describe '.kanji' do
     it '全角文字とスペースが返ること' do
-      _(Gimei.kanji).must_match /\A[#{Moji.zen}\s]+\z/
+      _(Gimei.kanji).must_match(/\A[#{Moji.zen}\s]+\z/)
     end
   end
 
   describe '#hiragana' do
     it 'ひらがなとスペースが返ること' do
-      _(Gimei.new.hiragana).must_match /\A[\p{hiragana}\s]+\z/
+      _(Gimei.new.hiragana).must_match(/\A[\p{hiragana}\s]+\z/)
     end
   end
 
   describe '.hiragana' do
     it 'ひらがなとスペースが返ること' do
-      _(Gimei.hiragana).must_match /\A[\p{hiragana}\s]+\z/
+      _(Gimei.hiragana).must_match(/\A[\p{hiragana}\s]+\z/)
     end
   end
 
   describe '#katakana' do
     it 'カタカナとスペースが返ること' do
-      _(Gimei.new.katakana).must_match /\A[\p{katakana}\s]+\z/
+      _(Gimei.new.katakana).must_match(/\A[\p{katakana}\s]+\z/)
     end
   end
 
   describe '.katakana' do
     it 'カタカナとスペースが返ること' do
-      _(Gimei.katakana).must_match /\A[\p{katakana}\s]+\z/
+      _(Gimei.katakana).must_match(/\A[\p{katakana}\s]+\z/)
     end
   end
 
