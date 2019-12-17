@@ -22,4 +22,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('moji')
   gem.add_development_dependency('minitest')
   gem.add_development_dependency('coveralls')
+  gem.add_development_dependency('rubocop')
 end
