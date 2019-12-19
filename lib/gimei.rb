@@ -9,7 +9,7 @@ class Gimei
 
   NAMES = YAML.load_file(File.expand_path(File.join('..', 'data', 'names.yml'), __FILE__))
   ADDRESSES = YAML.load_file(File.expand_path(File.join('..', 'data', 'addresses.yml'), __FILE__))
-  GENDER = [:male, :female].freeze
+  GENDERS = [:male, :female].freeze
 
   def_delegators :@name, :kanji, :hiragana, :katakana, :first, :last, :male?, :female?, :romaji
   def_delegators :@address, :prefecture, :city, :town
