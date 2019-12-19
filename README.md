@@ -66,6 +66,44 @@ Gimei.first.katakana #=> "ヤマト"
 Gimei.first.romaji   #=> "Noriyuki"
 ```
 
+同じ名前を二度取得したくない場合には、以下のように`unique`を挟みます。次のようにすると、利用した名前をGimei内で保持することで必ず一意な名前を返すようにできます。
+
+```ruby
+Gimei.unique.name
+```
+
+上記の場合は、フルネームの漢字が一意であることを保証します。つまり、次のように姓や名の単位では重複することもありえます。
+
+```ruby
+Gimei.unique.name.kanji #=> "前島 真一"
+Gimei.unique.name.kanji #=> "神谷 真一"
+Gimei.unique.name.kanji #=> "前島 太郎"
+```
+
+これを避けたいときは次のように`last`や`first`を利用してください。これは姓や名の単位で一意な名前を返します。
+
+```ruby
+Gimei.unique.last
+Gimei.unique.first
+```
+
+この場合でも、ふりがな(フリガナ)の単位では重複することがあります。
+
+```ruby
+Gimei.unique.first.hiragana #=> "しんいち"
+Gimei.unique.first.hiragana #=> "しんいち"
+```
+
+もし名前の候補が枯渇するなど、一意な名前を返せない場合はエラーになります。
+
+これまで利用した名前のリストを消去したい場合は、次のようにします。
+
+```ruby
+Gimei.unique.clear # 全体を消去
+Gimei.unique.clear(:name) # Gimei.unique.name の結果を消去
+Gimei.unique.clear(:first) # Gimei.unique.first の結果を消去
+```
+
 出力される名前の候補となるデータは `lib/data/names.yml` にあるので、必要であればファイルを修正してください。
 
 ### 住所をランダムで返す
@@ -118,6 +156,36 @@ Gimei.town.to_s               # => 富久山町南小泉
 Gimei.town.hiragana           # => じょうしんでん
 Gimei.town.katakana           # => イケナイ
 Gimei.town.romaji             # => Heisei
+```
+
+同じ住所を二度取得したくない場合には、以下のように`unique`を挟みます。次のようにすると、利用した住所をGimei内で保持することで必ず一意な名前を返すようにできます。
+
+```ruby
+address = Gimei.unique.address
+```
+
+上記の場合は、住所全体が一意であることを保証します。つまり、次のように県や市町村の単位では重複することもありえます。
+
+```ruby
+Gimei.unique.address.prefecture.kanji #=> 東京都
+Gimei.unique.address.prefecture.kanji #=> 東京都
+```
+
+もし県や市町村の単位で一意であることを保証したいのであれば、次のように短縮形を使います。
+
+```ruby
+Gimei.unique.prefecture.kanji #=> 東京都
+Gimei.unique.prefecture.kanji #=> 神奈川県
+```
+
+もし住所の候補が枯渇するなど、一意な名前を返せない場合はエラーになります。
+
+これまで利用した住所のリストを消去したい場合は、次のようにします。
+
+```ruby
+Gimei.unique.clear # 全体を消去
+Gimei.unique.clear(:address) # Gimei.unique.address の結果を消去
+Gimei.unique.clear(:prefecture) # Gimei.unique.prefecture の結果を消去
 ```
 
 出力される住所の候補となるデータは `lib/data/addresses.yml` にあるので、必要であればファイルを修正してください。
