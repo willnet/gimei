@@ -1,3 +1,9 @@
+## 0.4.0
+
+* Gimei#genderメソッドの追加 - [@nard-tech](https://github.com/nard-tech)
+* Ruby 1.9のサポートの停止
+* Ruby 2.7をサポート開始
+
 ## 0.3.0
 
 * ローマ字対応 - [@takkanm](https://github.com/takkanm)
