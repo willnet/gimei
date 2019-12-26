@@ -124,7 +124,6 @@ Gimei.town.romaji             # => Heisei
 
 ## Supported versions
 
-- 1.9.3
 - 2.0.0
 - 2.1.x
 - 2.2.x
