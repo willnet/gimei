@@ -20,6 +20,9 @@ gimei.kanji          #=> "斎藤 陽菜"
 gimei.hiragana       #=> "さいとう はるな"
 gimei.katakana       #=> "サイトウ ハルナ"
 gimei.romaji         #=> "Haruna Saitou"
+gimei.gender         #=> :female
+gimei.male?          #=> false
+gimei.female?        #=> true
 gimei.last.kanji     #=> "斎藤"
 gimei.last.hiragana  #=> "さいとう"
 gimei.last.katakana  #=> "サイトウ"
@@ -36,11 +39,13 @@ gimei.first.romaji   #=> "Haruna"
 gimei = Gimei.male
 gimei.male?   #=> true
 gimei.female? #=> false
+gimei.gender  #=> :male
 gimei.kanji   #=> "小林 顕士"
 
 gimei = Gimei.female
 gimei.male?   #=> false
 gimei.female? #=> true
+gimei.gender  #=> :female
 gimei.kanji   #=> "根本 彩世"
 ```
 

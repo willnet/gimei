@@ -9,6 +9,10 @@ describe Gimei do
       _(@name).must_be_instance_of Gimei::Name
     end
 
+    it '#gender が :male を返すこと' do
+      _(@name.gender).must_equal :male
+    end
+
     it '#male? が true を返すこと' do
       _(@name.male?).must_equal true
     end
@@ -21,8 +25,19 @@ describe Gimei do
       _(@name).must_be_instance_of Gimei::Name
     end
 
+    it '#gender が :female を返すこと' do
+      _(@name.gender).must_equal :female
+    end
+
     it '#female? が true を返すこと' do
       _(@name.female?).must_equal true
+    end
+  end
+
+  describe '#gender' do
+    it ':male または :female が返ること' do
+      _(Gimei.new.gender).must_be_instance_of(Symbol)
+      _(Gimei.new.gender.to_s).must_match(/\A(?:male|female)\Z/)
     end
   end
 

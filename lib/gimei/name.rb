@@ -1,7 +1,7 @@
 require 'romaji'
 
 class Gimei::Name
-  attr_reader :first, :last
+  attr_reader :first, :last, :gender
 
   class << self
     extend Forwardable
