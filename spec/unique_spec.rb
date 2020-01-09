@@ -14,7 +14,7 @@ describe 'Gimei.unique' do
           'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
           'last_name' => [%w[前島 まえしま マエシマ], %w[神谷 かみや カミヤ]]
         }
-        [Gimei.unique.male.kanji, Gimei.unique.male.kanji].sort.must_equal ['前島 真一', '神谷 真一']
+        _([Gimei.unique.male.kanji, Gimei.unique.male.kanji].sort).must_equal ['前島 真一', '神谷 真一']
         Gimei::NAMES = original_names
       end
     end
@@ -44,7 +44,7 @@ describe 'Gimei.unique' do
           'first_name' => { 'male' => [%w[真一 しんいち シンイチ], %w[真二 しんじ シンジ]] },
           'last_name' => %w[]
         }
-        [Gimei.unique.first(:male).kanji, Gimei.unique.first(:male).kanji].sort.must_equal %w[真一 真二]
+        _([Gimei.unique.first(:male).kanji, Gimei.unique.first(:male).kanji].sort).must_equal %w[真一 真二]
         Gimei::NAMES = original_names
       end
     end
@@ -74,7 +74,7 @@ describe 'Gimei.unique' do
           'first_name' => { 'male' => [], 'female' => [] },
           'last_name' => [%w[前島 まえしま マエシマ], %w[神谷 かみや カミヤ]]
         }
-        [Gimei.unique.last.kanji, Gimei.unique.last.kanji].sort.must_equal %w[前島 神谷]
+        _([Gimei.unique.last.kanji, Gimei.unique.last.kanji].sort).must_equal %w[前島 神谷]
         Gimei::NAMES = original_names
       end
     end
@@ -106,7 +106,7 @@ describe 'Gimei.unique' do
             'town' => [%w[恵比寿 えびす エビス], %w[蛭子 えびす エビス]]
           }
         }
-        [Gimei.unique.address.kanji, Gimei.unique.address.kanji].sort.must_equal %w[東京都渋谷区恵比寿 東京都渋谷区蛭子]
+        _([Gimei.unique.address.kanji, Gimei.unique.address.kanji].sort).must_equal %w[東京都渋谷区恵比寿 東京都渋谷区蛭子]
         Gimei::ADDRESSES = original_addresses
       end
     end
@@ -141,7 +141,7 @@ describe 'Gimei.unique' do
             'town' => []
           }
         }
-        [Gimei.unique.prefecture.kanji, Gimei.unique.prefecture.kanji].sort.must_equal %w[東京都 静岡県]
+        _([Gimei.unique.prefecture.kanji, Gimei.unique.prefecture.kanji].sort).must_equal %w[東京都 静岡県]
         Gimei::ADDRESSES = original_addresses
       end
     end
@@ -176,7 +176,7 @@ describe 'Gimei.unique' do
             'town' => []
           }
         }
-        [Gimei.unique.city.kanji, Gimei.unique.city.kanji].sort.must_equal %w[新宿区 渋谷区]
+        _([Gimei.unique.city.kanji, Gimei.unique.city.kanji].sort).must_equal %w[新宿区 渋谷区]
         Gimei::ADDRESSES = original_addresses
       end
     end
@@ -211,7 +211,7 @@ describe 'Gimei.unique' do
             'town' => [%w[恵比寿 えびす エビス], %w[蛭子 えびす エビス]]
           }
         }
-        [Gimei.unique.town.kanji, Gimei.unique.town.kanji].sort.must_equal %w[恵比寿 蛭子]
+        _([Gimei.unique.town.kanji, Gimei.unique.town.kanji].sort).must_equal %w[恵比寿 蛭子]
         Gimei::ADDRESSES = original_addresses
       end
     end
