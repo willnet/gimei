@@ -8,4 +8,5 @@ Coveralls.wear!
 
 require 'gimei'
 require 'minitest/autorun'
+require 'minitest/stub_const'
 require 'moji'
