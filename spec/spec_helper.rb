@@ -17,3 +17,4 @@ end
 def zenkaku_or_space_regexp
   /\p{Hiragana}|\p{Katakana}|[一-龠々]|\s/
 end
+
