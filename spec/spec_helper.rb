@@ -9,4 +9,11 @@ Coveralls.wear!
 require 'gimei'
 require 'minitest/autorun'
 require 'minitest/stub_const'
-require 'moji'
+
+def zenkaku_regexp
+  /\p{Hiragana}|\p{Katakana}|[一-龠々]/
+end
+
+def zenkaku_or_space_regexp
+  /\p{Hiragana}|\p{Katakana}|[一-龠々]|\s/
+end

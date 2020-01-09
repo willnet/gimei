@@ -43,19 +43,19 @@ describe Gimei do
 
   describe '#kanji' do
     it '全角文字とスペースが返ること' do
-      _(Gimei.new.kanji).must_match(/\A[#{Moji.zen}\s]+\z/)
+      _(Gimei.new.kanji).must_match(/\A#{zenkaku_or_space_regexp}+\z/)
     end
   end
 
   describe '#to_s' do
     it '全角文字とスペースが返ること' do
-      _(Gimei.new.to_s).must_match(/\A[#{Moji.zen}\s]+\z/)
+      _(Gimei.new.to_s).must_match(/\A#{zenkaku_or_space_regexp}+\z/)
     end
   end
 
   describe '.kanji' do
     it '全角文字とスペースが返ること' do
-      _(Gimei.kanji).must_match(/\A[#{Moji.zen}\s]+\z/)
+      _(Gimei.kanji).must_match(/\A#{zenkaku_or_space_regexp}+\z/)
     end
   end
 

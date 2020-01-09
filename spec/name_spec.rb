@@ -36,7 +36,7 @@ describe Gimei::Name do
 
   describe '.kanji' do
     it '全角文字とスペースが返ること' do
-      _(Gimei::Name.kanji).must_match(/\A[#{Moji.zen}\s]+\z/)
+      _(Gimei::Name.kanji).must_match(/\A#{zenkaku_or_space_regexp}+\z/)
     end
   end
 
@@ -67,7 +67,7 @@ describe Gimei::Name do
 
   describe '#kanji' do
     it '全角文字とスペースが返ること' do
-      _(Gimei::Name.new.kanji).must_match(/\A[#{Moji.zen}\s]+\z/)
+      _(Gimei::Name.new.kanji).must_match(/\A#{zenkaku_or_space_regexp}+\z/)
     end
   end
 
@@ -129,7 +129,7 @@ describe Gimei::Name::First do
 
   describe '#kanji' do
     it '全角文字が返ること' do
-      _(Gimei::Name::First.new.kanji).must_match(/\A#{Moji.zen}+\z/)
+      _(Gimei::Name::First.new.kanji).must_match(/\A#{zenkaku_regexp}+\z/)
     end
   end
 
@@ -147,7 +147,7 @@ describe Gimei::Name::First do
 
   describe '#to_s' do
     it '全角文字が返ること' do
-      _(Gimei::Name::First.new.to_s).must_match(/\A#{Moji.zen}+\z/)
+      _(Gimei::Name::First.new.to_s).must_match(/\A#{zenkaku_regexp}+\z/)
     end
   end
 
@@ -163,7 +163,7 @@ describe Gimei::Name::Last do
 
   describe '#kanji' do
     it '全角文字が返ること' do
-      _(@name.kanji).must_match(/\A#{Moji.zen}+\z/)
+      _(@name.kanji).must_match(/\A#{zenkaku_regexp}+\z/)
     end
   end
 
@@ -181,7 +181,7 @@ describe Gimei::Name::Last do
 
   describe '#to_s' do
     it '全角文字が返ること' do
-      _(@name.to_s).must_match(/\A#{Moji.zen}+\z/)
+      _(@name.to_s).must_match(/\A#{zenkaku_regexp}+\z/)
     end
   end
 
