@@ -4,21 +4,21 @@ require_relative 'spec_helper'
 describe Gimei do
   describe '#kanji and #to_s' do
     it '全角文字が返ること' do
-      _(Gimei.address.kanji).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.address.to_s).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.address.prefecture.kanji).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.address.prefecture.to_s).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.address.city.kanji).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.address.city.to_s).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.address.town.kanji).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.address.town.to_s).must_match(/\A[#{Moji.zen}]+\z/)
+      _(Gimei.address.kanji).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.address.to_s).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.address.prefecture.kanji).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.address.prefecture.to_s).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.address.city.kanji).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.address.city.to_s).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.address.town.kanji).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.address.town.to_s).must_match(/\A#{zenkaku_regexp}+\z/)
 
-      _(Gimei.prefecture.kanji).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.prefecture.to_s).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.city.kanji).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.city.to_s).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.town.kanji).must_match(/\A[#{Moji.zen}]+\z/)
-      _(Gimei.town.to_s).must_match(/\A[#{Moji.zen}]+\z/)
+      _(Gimei.prefecture.kanji).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.prefecture.to_s).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.city.kanji).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.city.to_s).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.town.kanji).must_match(/\A#{zenkaku_regexp}+\z/)
+      _(Gimei.town.to_s).must_match(/\A#{zenkaku_regexp}+\z/)
     end
   end
 

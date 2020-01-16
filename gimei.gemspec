@@ -19,7 +19,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.add_dependency('romaji')
   gem.add_development_dependency('rake')
-  gem.add_development_dependency('moji')
   gem.add_development_dependency('minitest')
   gem.add_development_dependency('coveralls')
 end
