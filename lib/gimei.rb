@@ -28,15 +28,7 @@ class Gimei
       Name.new(gender)
     end
 
-    def first(gender = nil)
-      Name::First.new(gender)
-    end
-
-    def last
-      Name::Last.new
-    end
-
-    %i[kanji hiragana katakana romaji].each do |method_name|
+    %i[kanji hiragana katakana romaji first last].each do |method_name|
       define_method(method_name) do |gender = nil|
         name(gender).public_send(method_name)
       end
