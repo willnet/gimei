@@ -5,7 +5,7 @@ describe 'Gimei.unique' do
   before do
     Gimei.unique.clear
   end
-  # TODO: kanji hiragana katakana romaji
+
   describe '#male' do
     describe '名前が枯渇していないとき' do
       it '一意な名前(フルネームの漢字単位)が返ること' do
@@ -27,6 +27,33 @@ describe 'Gimei.unique' do
           assert_raises Gimei::RetryLimitExceeded do
             Gimei.unique.male
             Gimei.unique.male
+          end
+        end
+      end
+    end
+  end
+
+  describe '#female' do
+    describe '名前が枯渇していないとき' do
+      it '一意な名前(フルネームの漢字単位)が返ること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'female' => [%w[花子 はなこ ハナコ]] },
+          'last_name' => [%w[前島 まえしま マエシマ], %w[神谷 かみや カミヤ]]
+        }) do
+          _([Gimei.unique.female.kanji, Gimei.unique.female.kanji].sort).must_equal ['前島 花子', '神谷 花子']
+        end
+      end
+    end
+
+    describe '名前が枯渇したとき' do
+      it 'Gimei::RetryLimitExceededed例外が発生すること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'female' => [%w[花子 はなこ ハナコ]] },
+          'last_name' => [%w[前島 まえしま マエシマ]]
+        }) do
+          assert_raises Gimei::RetryLimitExceeded do
+            Gimei.unique.female
+            Gimei.unique.female
           end
         end
       end
@@ -81,6 +108,114 @@ describe 'Gimei.unique' do
           assert_raises Gimei::RetryLimitExceeded do
             Gimei.unique.last
             Gimei.unique.last
+          end
+        end
+      end
+    end
+  end
+
+  describe '#kanji' do
+    describe '名前が枯渇していないとき' do
+      it '一意な名前(フルネームの漢字単位)が返ること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+          'last_name' => [%w[前島 まえしま マエシマ], %w[神谷 かみや カミヤ]]
+        }) do
+          _([Gimei.unique.kanji(:male), Gimei.unique.kanji(:male)].sort).must_equal ['前島 真一', '神谷 真一']
+        end
+      end
+    end
+
+    describe '名前が枯渇したとき' do
+      it 'Gimei::RetryLimitExceededed例外が発生すること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+          'last_name' => [%w[前島 まえしま マエシマ]]
+        }) do
+          assert_raises Gimei::RetryLimitExceeded do
+            Gimei.unique.kanji(:male)
+            Gimei.unique.kanji(:male)
+          end
+        end
+      end
+    end
+  end
+
+  describe '#hiragana' do
+    describe '名前が枯渇していないとき' do
+      it '一意な名前(フルネームの漢字単位)が返ること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+          'last_name' => [%w[前島 まえしま マエシマ], %w[神谷 かみや カミヤ]]
+        }) do
+          _([Gimei.unique.hiragana(:male), Gimei.unique.hiragana(:male)].sort).must_equal ['かみや しんいち', 'まえしま しんいち']
+        end
+      end
+    end
+
+    describe '名前が枯渇したとき' do
+      it 'Gimei::RetryLimitExceededed例外が発生すること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+          'last_name' => [%w[前島 まえしま マエシマ]]
+        }) do
+          assert_raises Gimei::RetryLimitExceeded do
+            Gimei.unique.hiragana(:male)
+            Gimei.unique.hiragana(:male)
+          end
+        end
+      end
+    end
+  end
+
+  describe '#katakana' do
+    describe '名前が枯渇していないとき' do
+      it '一意な名前(フルネームの漢字単位)が返ること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+          'last_name' => [%w[前島 まえしま マエシマ], %w[神谷 かみや カミヤ]]
+        }) do
+          _([Gimei.unique.katakana(:male), Gimei.unique.katakana(:male)].sort).must_equal ['カミヤ シンイチ', 'マエシマ シンイチ']
+        end
+      end
+    end
+
+    describe '名前が枯渇したとき' do
+      it 'Gimei::RetryLimitExceededed例外が発生すること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+          'last_name' => [%w[前島 まえしま マエシマ]]
+        }) do
+          assert_raises Gimei::RetryLimitExceeded do
+            Gimei.unique.katakana(:male)
+            Gimei.unique.katakana(:male)
+          end
+        end
+      end
+    end
+  end
+
+  describe '#romaji' do
+    describe '名前が枯渇していないとき' do
+      it '一意な名前(フルネームの漢字単位)が返ること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+          'last_name' => [%w[前島 まえしま マエシマ], %w[神谷 かみや カミヤ]]
+        }) do
+          _([Gimei.unique.romaji(:male), Gimei.unique.romaji(:male)].sort).must_equal ['Shinichi Kamiya', 'Shinichi Maeshima']
+        end
+      end
+    end
+
+    describe '名前が枯渇したとき' do
+      it 'Gimei::RetryLimitExceededed例外が発生すること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+          'last_name' => [%w[前島 まえしま マエシマ]]
+        }) do
+          assert_raises Gimei::RetryLimitExceeded do
+            Gimei.unique.romaji(:male)
+            Gimei.unique.romaji(:male)
           end
         end
       end
