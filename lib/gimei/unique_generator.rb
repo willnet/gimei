@@ -38,7 +38,7 @@ class Gimei
       define_unique_method(method_name)
     end
 
-    %i[male female kanji hiragana katanaka romaji].each do |method_name|
+    %i[male female kanji hiragana katakana romaji].each do |method_name|
       define_unique_method(method_name, :name)
     end
 
