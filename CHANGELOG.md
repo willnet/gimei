@@ -1,3 +1,7 @@
+## unreleased
+
+* 乱数生成器を Config 経由で設定できるようにした [purintai (Purintai)](https://github.com/purintai) ( https://github.com/willnet/gimei/pull/34  )
+
 ## 0.4.0
 
 * Gimei#genderメソッドの追加 - [@nard-tech](https://github.com/nard-tech)
