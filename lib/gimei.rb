@@ -31,6 +31,18 @@ class Gimei
     def address
       Address.new
     end
+
+    def config
+      @_config ||= Config.new
+    end
+  end
+
+  class Config
+    attr_accessor :rng
+
+    def initialize
+      @rng = Random.new
+    end
   end
 
   def initialize(gender = nil)
