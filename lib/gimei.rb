@@ -43,11 +43,11 @@ class Gimei
 
       @unique = UniqueGenerator.new(self, max_retries)
 
-      %i[name last first address prefecture city town].each do |method_name|
+      %i[name last first hiragana katakana romaji address prefecture city town].each do |method_name|
         @unique.define_unique_method(method_name)
       end
 
-      %i[male female kanji hiragana katakana romaji].each do |method_name|
+      %i[male female kanji].each do |method_name|
         @unique.define_unique_method(method_name, :name)
       end
 
