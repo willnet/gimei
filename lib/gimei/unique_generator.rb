@@ -3,6 +3,10 @@ class Gimei
 
   class UniqueGenerator
     class << self
+      def previous_results
+        @previous_results ||= Hash.new { |hash, key| hash[key] = Set.new }
+      end
+
       def define_unique_method(method_name, previous_result_key = method_name)
         define_method method_name do |*args|
           max_retries.times do
@@ -21,7 +25,10 @@ class Gimei
 
     def initialize(max_retries)
       @max_retries = max_retries
-      @previous_results = Hash.new { |hash, key| hash[key] = Set.new }
+    end
+
+    def previous_results
+      self.class.previous_results
     end
 
     def clear(key = nil)
@@ -42,6 +49,6 @@ class Gimei
 
     private
 
-    attr_reader :max_retries, :previous_results
+    attr_reader :max_retries
   end
 end
