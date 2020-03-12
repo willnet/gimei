@@ -2,22 +2,20 @@ class Gimei
   class RetryLimitExceeded < StandardError; end
 
   class UniqueGenerator
-    def self.define_unique_method(method_name, previous_result_key = method_name)
-      define_method method_name do |*args|
-        max_retries.times do
-          result = if args.length > 0
-                     Gimei.public_send(method_name, *args)
-                   else
-                     Gimei.public_send(method_name)
-                   end
+    class << self
+      def define_unique_method(method_name, previous_result_key = method_name)
+        define_method method_name do |*args|
+          max_retries.times do
+            result = Gimei.public_send(method_name, *args)
 
-          next if previous_results[previous_result_key].include?(result.to_s)
+            next if previous_results[previous_result_key].include?(result.to_s)
 
-          previous_results[previous_result_key] << result.to_s
-          return result
+            previous_results[previous_result_key] << result.to_s
+            return result
+          end
+
+          raise RetryLimitExceeded, "Retry limit exceeded for #{method_name}"
         end
-
-        raise RetryLimitExceeded, "Retry limit exceeded for #{method_name}"
       end
     end
 
