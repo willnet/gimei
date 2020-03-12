@@ -11,14 +11,6 @@ class Gimei
     def initialize(klass, max_retries)
       @klass = klass
       @max_retries = max_retries
-
-      %i[name last first address prefecture city town].each do |method_name|
-        define_unique_method(method_name)
-      end
-
-      %i[male female kanji hiragana katakana romaji].each do |method_name|
-        define_unique_method(method_name, :name)
-      end
     end
 
     def previous_results
