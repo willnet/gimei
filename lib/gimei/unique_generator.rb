@@ -8,7 +8,8 @@ class Gimei
       end
     end
 
-    def initialize(max_retries)
+    def initialize(klass, max_retries)
+      @klass = klass
       @max_retries = max_retries
 
       %i[name last first address prefecture city town].each do |method_name|
@@ -35,7 +36,7 @@ class Gimei
     def define_unique_method(method_name, previous_result_key = method_name)
       define_singleton_method method_name do |*args|
         max_retries.times do
-          result = Gimei.public_send(method_name, *args)
+          result = klass.public_send(method_name, *args)
 
           next if previous_results[previous_result_key].include?(result.to_s)
 
@@ -49,6 +50,6 @@ class Gimei
 
     private
 
-    attr_reader :max_retries
+    attr_reader :klass, :max_retries
   end
 end

@@ -39,7 +39,7 @@ class Gimei
     end
 
     def unique(max_retries = 10_000)
-      @unique ||= UniqueGenerator.new(max_retries)
+      @unique ||= UniqueGenerator.new(self, max_retries)
     end
 
     def config
