@@ -5,7 +5,6 @@ class Gimei::Name
 
   class << self
     extend Forwardable
-    def_delegators :new, :kanji, :hiragana, :katakana, :first, :last, :romaji
 
     def male
       new(:male)
@@ -13,6 +12,12 @@ class Gimei::Name
 
     def female
       new(:female)
+    end
+
+    %i[kanji hiragana katakana romaji first last].each do |method_name|
+      define_method(method_name) do |gender = nil|
+        new(gender).public_send(method_name)
+      end
     end
   end
 
