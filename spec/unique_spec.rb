@@ -6,6 +6,49 @@ describe 'Gimei.unique' do
     Gimei.unique.clear
   end
 
+  describe '#clear' do
+    describe '名前が枯渇してからclearを実行し、再度名前を取得しようとしたとき' do
+      it 'Gimei::RetryLimitExceededed例外が発生しないこと' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+          'last_name' => [%w[前島 まえしま マエシマ]]
+        }) do
+          Gimei.unique.male
+          Gimei.unique.clear
+          Gimei.unique.male
+        end
+      end
+    end
+
+    describe '名前が枯渇してからclear(:name)を実行し再度名前を取得しようとしたとき' do
+      it 'Gimei::RetryLimitExceededed例外が発生しないこと' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => {'male' => [%w[真一 しんいち シンイチ]]},
+          'last_name' => [%w[前島 まえしま マエシマ]]
+        }) do
+          Gimei.unique.male
+          Gimei.unique.clear(:name)
+          Gimei.unique.male
+        end
+      end
+    end
+
+    describe '名前が枯渇してからclear(:address)を実行し再度名前を取得しようとしたとき' do
+      it 'Gimei::RetryLimitExceededed例外が発生すること' do
+        Gimei.stub_const(:NAMES, {
+          'first_name' => {'male' => [%w[真一 しんいち シンイチ]]},
+          'last_name' => [%w[前島 まえしま マエシマ]]
+        }) do
+          assert_raises Gimei::RetryLimitExceeded do
+            Gimei.unique.male
+            Gimei.unique.clear(:address)
+            Gimei.unique.male
+          end
+        end
+      end
+    end
+  end
+
   describe '#male' do
     describe '名前が枯渇していないとき' do
       it '一意な名前(フルネームの漢字単位)が返ること' do

@@ -19,7 +19,7 @@ class Gimei
 
     def clear(key = nil)
       if key
-        previous_results(key.to_sym).clear
+        previous_results[key.to_sym].clear
       else
         previous_results.clear
       end
