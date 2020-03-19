@@ -1,12 +1,13 @@
-## unreleased
+## 0.5.0
 
-* 乱数生成器を Config 経由で設定できるようにした [purintai (Purintai)](https://github.com/purintai) ( https://github.com/willnet/gimei/pull/34  )
+* Gimei.uniqueメソッドの追加 [@willnet](https://github.com/willnet) (https://github.com/willnet/gimei/pull/35) 
+* 乱数生成器を Config 経由で設定できるようにした [@purintai](https://github.com/purintai) ( https://github.com/willnet/gimei/pull/34  )
 
 ## 0.4.0
 
 * Gimei#genderメソッドの追加 - [@nard-tech](https://github.com/nard-tech)
-* Ruby 1.9のサポートの停止
-* Ruby 2.7をサポート開始
+* Ruby 1.9のサポートを停止
+* Ruby 2.7のサポートを開始
 
 ## 0.3.0
 
