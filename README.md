@@ -104,6 +104,12 @@ Gimei.unique.clear(:name) # Gimei.unique.name の結果を消去
 Gimei.unique.clear(:first) # Gimei.unique.first の結果を消去
 ```
 
+次のメソッドで生成された名前は`Gimei.unique.clear(:name)`で消去します。
+
+- `Gimei.unique.male`
+- `Gimei.unique.female`
+- `Gimei.unique.kanji`
+
 出力される名前の候補となるデータは `lib/data/names.yml` にあるので、必要であればファイルを修正してください。
 
 ### 住所をランダムで返す
