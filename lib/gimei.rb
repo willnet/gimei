@@ -4,6 +4,7 @@ require 'gimei/version'
 require 'gimei/name'
 require 'gimei/address'
 require 'gimei/unique_generator'
+require 'gimei/config'
 
 class Gimei
   extend Forwardable
@@ -55,17 +56,10 @@ class Gimei
     end
 
     def config
-      @_config ||= Config.new
+      @config ||= Config.new
     end
   end
 
-  class Config
-    attr_accessor :rng
-
-    def initialize
-      @rng = Random.new
-    end
-  end
 
   def initialize(gender = nil)
     @name = Name.new(gender)
