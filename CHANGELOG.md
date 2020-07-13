@@ -1,6 +1,10 @@
+## 0.5.1
+
+* 住所データの更新 [kossy0701 (kawagoekeisuke)](https://github.com/kossy0701) (https://github.com/willnet/gimei/pull/38)
+
 ## 0.5.0
 
-* Gimei.uniqueメソッドの追加 [@willnet](https://github.com/willnet) (https://github.com/willnet/gimei/pull/35) 
+* Gimei.uniqueメソッドの追加 [@willnet](https://github.com/willnet) (https://github.com/willnet/gimei/pull/35)
 * 乱数生成器を Config 経由で設定できるようにした [@purintai](https://github.com/purintai) ( https://github.com/willnet/gimei/pull/34  )
 
 ## 0.4.0
