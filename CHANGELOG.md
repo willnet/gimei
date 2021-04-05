@@ -1,3 +1,9 @@
+## Unreleased
+
+* Ruby2.2以下のサポートを削除 [@willnet](https://github.com/willnet)
+  * [Drop ruby suport < 2.2.0 · willnet/gimei@d02363f](https://github.com/willnet/gimei/commit/d02363f2fc6ffa31a531576cb9f599a01e25194f)
+  * 現時点ではテストしていないだけなので、未サポートのRubyでも動作はすると思いますが保証外です
+
 ## 0.5.1
 
 * 住所データの更新 [kossy0701 (kawagoekeisuke)](https://github.com/kossy0701) (https://github.com/willnet/gimei/pull/38)
