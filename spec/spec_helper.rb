@@ -8,7 +8,6 @@ Coveralls.wear!
 
 require 'gimei'
 require 'minitest/autorun'
-require 'minitest/stub_const'
 
 def zenkaku_regexp
   /\p{Hiragana}|\p{Katakana}|[一-龠々]/

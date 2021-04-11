@@ -43,7 +43,7 @@ class Gimei::Address
     end
 
     def initialize
-      @prefectures = Gimei::ADDRESSES['addresses']['prefecture'].sample(random: Gimei.config.rng)
+      @prefectures = Gimei.addresses['addresses']['prefecture'].sample(random: Gimei.config.rng)
     end
 
     alias_method :to_s, :kanji
@@ -67,7 +67,7 @@ class Gimei::Address
     end
 
     def initialize
-      @cities = Gimei::ADDRESSES['addresses']['city'].sample(random: Gimei.config.rng)
+      @cities = Gimei.addresses['addresses']['city'].sample(random: Gimei.config.rng)
     end
 
     alias_method :to_s, :kanji
@@ -91,7 +91,7 @@ class Gimei::Address
     end
 
     def initialize
-      @towns = Gimei::ADDRESSES['addresses']['town'].sample(random: Gimei.config.rng)
+      @towns = Gimei.addresses['addresses']['town'].sample(random: Gimei.config.rng)
     end
 
     alias_method :to_s, :kanji
