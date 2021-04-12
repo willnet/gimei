@@ -9,8 +9,6 @@ require 'gimei/config'
 class Gimei
   extend Forwardable
 
-  NAMES = YAML.load_file(File.expand_path(File.join('..', 'data', 'names.yml'), __FILE__))
-  ADDRESSES = YAML.load_file(File.expand_path(File.join('..', 'data', 'addresses.yml'), __FILE__))
   GENDERS = [:male, :female].freeze
 
   def_delegators :@name, :gender, :kanji, :hiragana, :katakana, :first, :last, :male?, :female?, :romaji
@@ -27,6 +25,14 @@ class Gimei
 
     def name(gender = nil)
       Name.new(gender)
+    end
+
+    def names
+      @names ||= YAML.load_file(File.expand_path(File.join('..', 'data', 'names.yml'), __FILE__))
+    end
+
+    def addresses
+      @addresses ||= YAML.load_file(File.expand_path(File.join('..', 'data', 'addresses.yml'), __FILE__))
     end
 
     %i[kanji hiragana katakana romaji first last].each do |method_name|
