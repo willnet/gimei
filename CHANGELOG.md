@@ -1,4 +1,4 @@
-## Unreleased
+## 1.0.0
 
 * データの読み込みを遅延させた [@willnet](https://github.com/willnet) (https://github.com/willnet/gimei/pull/41)
 * Ruby2.2以下のサポートを削除 [@willnet](https://github.com/willnet)
