@@ -178,4 +178,110 @@ describe Gimei do
       _(Gimei.new.town).must_be_instance_of Gimei::Address::Town
     end
   end
+
+  #
+  # Phone
+  #
+
+  describe '.new(phone_hyphen: true, phone_type: :fixed)' do
+    before do
+      @phone = Gimei.new(phone_hyphen: true, phone_type: :fixed).phone
+    end
+
+    it 'Gimei::Phone オブジェクトが返ること' do
+      _(@phone).must_be_instance_of Gimei::Phone
+    end
+
+    it '種別が固定電話であること' do
+      _(@phone.type).must_equal :fixed
+    end
+
+    it '電話番号（ハイフン有）が返ること' do
+      _(@phone.to_s).must_match(/-/)
+    end
+  end
+
+  describe '.new' do
+    before do
+      @phone = Gimei.new.phone
+    end
+
+    it 'Gimei::Phone オブジェクトが返ること' do
+      _(@phone).must_be_instance_of Gimei::Phone
+    end
+
+    it '電話番号（ハイフン無）が返ること' do
+      _(@phone.to_s).wont_match(/-/)
+    end
+  end
+
+  describe '.phone(hyphen: true, type: :fixed)' do
+    before do
+      @phone = Gimei.phone(hyphen: true, type: :fixed)
+    end
+
+    it 'Gimei::Phone オブジェクトが返ること' do
+      _(@phone).must_be_instance_of Gimei::Phone
+    end
+
+    it '種別が固定電話であること' do
+      _(@phone.type).must_equal :fixed
+    end
+
+    it '電話番号（ハイフン有）が返ること' do
+      _(@phone.to_s).must_match(/-/)
+    end
+  end
+
+  describe '.phone' do
+    before do
+      @phone = Gimei.phone
+    end
+
+    it 'Gimei::Phone オブジェクトが返ること' do
+      _(@phone).must_be_instance_of Gimei::Phone
+    end
+
+    it '電話番号（ハイフン無）が返ること' do
+      _(@phone.to_s).wont_match(/-/)
+    end
+  end
+
+  describe '.mobile_phone(hyphen: true)' do
+    before do
+      @phone = Gimei.mobile_phone(hyphen: true)
+    end
+
+    it 'Gimei::Phone オブジェクトが返ること' do
+      _(@phone).must_be_instance_of Gimei::Phone
+    end
+
+    it '電話番号（携帯, ハイフン有）が返ること' do
+      _(@phone.to_s).must_match(/-/)
+    end
+  end
+
+  describe '.mobile_phone' do
+    before do
+      @phone = Gimei.mobile_phone
+    end
+
+    it 'Gimei::Phone オブジェクトが返ること' do
+      _(@phone).must_be_instance_of Gimei::Phone
+    end
+
+    it '電話番号（携帯, ハイフン無）が返ること' do
+      _(@phone.to_s).wont_match(/-/)
+    end
+  end
+
+  describe '#phone' do
+    before do
+      @phone = Gimei.new.phone
+    end
+
+    it 'Gimei::Phone オブジェクトが返ること' do
+      _(@phone).must_be_instance_of Gimei::Phone
+    end
+  end
 end

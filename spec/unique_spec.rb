@@ -396,4 +396,20 @@ describe 'Gimei.unique' do
       end
     end
   end
+
+  describe '#phone' do
+    describe '電話番号が枯渇していないとき' do
+      it '電話番号オブジェクトが返ること' do
+        _(Gimei.unique.phone).must_be_instance_of Gimei::Phone
+      end
+    end
+  end
+
+  describe '#mobile_phone' do
+    describe '電話番号（携帯）が枯渇していないとき' do
+      it '電話番号オブジェクトが返ること' do
+        _(Gimei.unique.mobile_phone).must_be_instance_of Gimei::Phone
+      end
+    end
+  end
 end
