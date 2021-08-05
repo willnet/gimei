@@ -399,16 +399,43 @@ describe 'Gimei.unique' do
 
   describe '#phone' do
     describe '電話番号が枯渇していないとき' do
-      it '電話番号オブジェクトが返ること' do
-        _(Gimei.unique.phone).must_be_instance_of Gimei::Phone
+      it '一意な電話番号が返ること' do
+        _(Gimei.unique.phone(type: :for_unique).to_s).must_equal '1999999999'
+      end
+    end
+
+    describe '電話番号が枯渇したとき' do
+      it 'Gimei::RetryLimitExceeded 例外が発生すること' do
+        assert_raises Gimei::RetryLimitExceeded do
+          Gimei.unique.phone(type: :for_unique)
+          Gimei.unique.phone(type: :for_unique)
+        end
+      end
+    end
+
+    describe '電話番号ハイフンの有無で別の番号とする' do
+      it 'Gimei::RetryLimitExceeded 例外が発生しないこと' do
+        Gimei.unique.phone(type: :for_unique, hyphen: true)
+        Gimei.unique.phone(type: :for_unique, hyphen: false)
       end
     end
   end
 
   describe '#mobile_phone' do
     describe '電話番号（携帯）が枯渇していないとき' do
-      it '電話番号オブジェクトが返ること' do
-        _(Gimei.unique.mobile_phone).must_be_instance_of Gimei::Phone
+      # TODO: 一意な番号を返せる仕組みを実装
+      # it '一意な電話番号が返ること' do
+      #   _(Gimei.unique.mobile_phone.to_s).must_equal '1999999999'        
+      # end
+    end
+
+    describe '電話番号（携帯）が枯渇したとき' do
+      it 'Gimei::RetryLimitExceeded 例外が発生すること' do
+        # TODO: 番号が枯渇する仕組みを実装
+        # assert_raises Gimei::RetryLimitExceeded do
+        #   Gimei.unique.mobile_phone
+        #   Gimei.unique.mobile_phone
+        # end
       end
     end
   end

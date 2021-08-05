@@ -13,6 +13,8 @@ class Gimei
         @number = Phone.fixed_phone_number
       when :mobile
         @number = Phone.mobile_phone_number
+      when :for_unique
+        @number = "19-9999-9999"
       else
         raise UnknownPhoneType, "Unknown phone type for #{type}"
       end

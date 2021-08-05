@@ -111,4 +111,19 @@ describe 'Gimei::Phone' do
       _(@phone.to_s       ).must_match @expected.regex
     end
   end
+
+  # case :for_unique
+  describe '.new(type: :for_unique)' do
+    before do
+      @phone    = Gimei::Phone.new(type: :for_unique)
+    end
+
+    it '種別がテスト用(:for_unique)であること' do
+      _(@phone.type).must_equal :for_unique
+    end
+
+    it '電話番号 1999999999 が返ること' do
+      _(@phone.to_s).must_match "1999999999"
+    end
+  end
 end
