@@ -196,6 +196,20 @@ Gimei.unique.clear(:prefecture) # Gimei.unique.prefecture の結果を消去
 
 出力される住所の候補となるデータは `lib/data/addresses.yml` にあるので、必要であればファイルを修正してください。
 
+### 再現可能なランダムデータ
+
+下記のように乱数生成器を設定することで、再現性のあるランダムデータを生成できます。
+
+```ruby
+Gimei.config.rng = Random.new(42)
+Gimei.name.kanji    #=> "飯島 誠吾"
+Gimei.address.kanji #=> "熊本県日進市東場内"
+
+Gimei.config.rng = Random.new(42)
+Gimei.name.kanji    #=> "飯島 誠吾"
+Gimei.address.kanji #=> "熊本県日進市東場内"
+```
+
 ## Supported versions
 
 - 2.2.x
