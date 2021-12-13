@@ -208,15 +208,15 @@ Gimei.unique.clear(:prefecture) # Gimei.unique.prefecture の結果を消去
 
 ## 他言語による実装
 
-- [matarillo/dot-gimei](https://github.com/matarillo/dot-gimei) .NET
-- [ma2gedev/gimei_ex](https://github.com/ma2gedev/gimei_ex) Elixir
-- [gongo/emacs-gimei](https://github.com/gongo/emacs-gimei) Emacs Lisp
-- [mattn/go-gimei](https://github.com/mattn/go-gimei) Go
-- [moznion/gimei-java](https://github.com/moznion/gimei-java) Java
-- [demiglacesource/node-gimei](https://github.com/demiglacesource/node-gimei) Node.js
-- [youpong/Data-Gimei](https://github.com/youpong/Data-Gimei) Perl
-- [nabetama/gimei](https://github.com/nabetama/gimei) Python
-- [abcb2/type-gimei](https://github.com/abcb2/type-gimei) TypeScript
+- .NET       [matarillo/dot-gimei](https://github.com/matarillo/dot-gimei)
+- Elixir     [ma2gedev/gimei_ex](https://github.com/ma2gedev/gimei_ex)
+- Emacs Lisp [gongo/emacs-gimei](https://github.com/gongo/emacs-gimei)
+- Go         [mattn/go-gimei](https://github.com/mattn/go-gimei)
+- Java       [moznion/gimei-java](https://github.com/moznion/gimei-java)
+- Node.js    [demiglacesource/node-gimei](https://github.com/demiglacesource/node-gimei)
+- Perl       [youpong/Data-Gimei](https://github.com/youpong/Data-Gimei)
+- Python     [nabetama/gimei](https://github.com/nabetama/gimei)
+- TypeScript [abcb2/type-gimei](https://github.com/abcb2/type-gimei)
 
 ## Installation
 
