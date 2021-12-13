@@ -216,6 +216,7 @@ Gimei.unique.clear(:prefecture) # Gimei.unique.prefecture の結果を消去
 - [demiglacesource/node-gimei](https://github.com/demiglacesource/node-gimei)
 - [matarillo/dot-gimei](https://github.com/matarillo/dot-gimei)
 - [abcb2/type-gimei](https://github.com/abcb2/type-gimei)
+- [youpong/Data-Gimei](https://github.com/youpong/Data-Gimei)
 
 ## Installation
 
