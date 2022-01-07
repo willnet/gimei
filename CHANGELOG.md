@@ -1,3 +1,9 @@
+## 1.0.1
+
+- Ruby 3.1のサポート[@willnet](https://github.com/willnet) (https://github.com/willnet/gimei/pull/48)
+- 他言語による実装リストの更新 [@youpong](https://github.com/youpong) (https://github.com/willnet/gimei/pull/47)
+- READMEに「再現可能なランダムデータ」の節を追加 [@youpong](https://github.com/youpong) (https://github.com/willnet/gimei/pull/45)
+
 ## 1.0.0
 
 * データの読み込みを遅延させた [@willnet](https://github.com/willnet) (https://github.com/willnet/gimei/pull/41)
