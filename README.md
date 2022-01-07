@@ -222,14 +222,15 @@ Gimei.address.kanji #=> "熊本県日進市東場内"
 
 ## 他言語による実装
 
-- [mattn/go-gimei](https://github.com/mattn/go-gimei)
-- [moznion/gimei-java](https://github.com/moznion/gimei-java)
-- [nabetama/gimei](https://github.com/nabetama/gimei)
-- [gongo/emacs-gimei](https://github.com/gongo/emacs-gimei)
-- [ma2gedev/gimei_ex](https://github.com/ma2gedev/gimei_ex)
-- [demiglacesource/node-gimei](https://github.com/demiglacesource/node-gimei)
-- [matarillo/dot-gimei](https://github.com/matarillo/dot-gimei)
-- [abcb2/type-gimei](https://github.com/abcb2/type-gimei)
+- .NET       [matarillo/dot-gimei](https://github.com/matarillo/dot-gimei)
+- Elixir     [ma2gedev/gimei_ex](https://github.com/ma2gedev/gimei_ex)
+- Emacs Lisp [gongo/emacs-gimei](https://github.com/gongo/emacs-gimei)
+- Go         [mattn/go-gimei](https://github.com/mattn/go-gimei)
+- Java       [moznion/gimei-java](https://github.com/moznion/gimei-java)
+- Node.js    [demiglacesource/node-gimei](https://github.com/demiglacesource/node-gimei)
+- Perl       [youpong/Data-Gimei](https://github.com/youpong/Data-Gimei)
+- Python     [nabetama/gimei](https://github.com/nabetama/gimei)
+- TypeScript [abcb2/type-gimei](https://github.com/abcb2/type-gimei)
 
 ## Installation
 
