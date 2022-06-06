@@ -70,6 +70,18 @@ describe Gimei::Name do
     end
   end
 
+  describe '.family' do
+    it 'Gimei::Name::Last オブジェクトが返ること' do
+      _(Gimei::Name.family).must_be_instance_of Gimei::Name::Last
+    end
+  end
+
+  describe '.given' do
+    it 'Gimei::Name::First オブジェクトが返ること' do
+      _(Gimei::Name.given).must_be_instance_of Gimei::Name::First
+    end
+  end
+
   describe '#gender' do
     it ':male または :female が返ること' do
       _(Gimei::Name.new.gender).must_be_instance_of(Symbol)
@@ -110,6 +122,18 @@ describe Gimei::Name do
   describe '#last' do
     it 'Gimei::Name::Last オブジェクトが返ること' do
       _(Gimei::Name.new.last).must_be_instance_of Gimei::Name::Last
+    end
+  end
+
+  describe '#family' do
+    it 'Gimei::Name::Last オブジェクトが返ること' do
+      _(Gimei::Name.new.family).must_be_instance_of Gimei::Name::Last
+    end
+  end
+
+  describe '#given' do
+    it 'Gimei::Name::First オブジェクトが返ること' do
+      _(Gimei::Name.new.given).must_be_instance_of Gimei::Name::First
     end
   end
 end

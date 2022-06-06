@@ -14,7 +14,7 @@ class Gimei::Name
       new(:female)
     end
 
-    %i[kanji hiragana katakana romaji first last].each do |method_name|
+    %i[kanji hiragana katakana romaji first last family given].each do |method_name|
       define_method(method_name) do |gender = nil|
         new(gender).public_send(method_name)
       end
@@ -52,6 +52,9 @@ class Gimei::Name
   end
 
   alias_method :to_s, :kanji
+
+  alias_method :family, :last
+  alias_method :given, :first
 
   class First
     class << self
