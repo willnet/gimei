@@ -58,6 +58,18 @@ describe Gimei::Name do
     end
   end
 
+  describe '.first' do
+    it 'Gimei::Name::First オブジェクトが返ること' do
+      _(Gimei::Name.first).must_be_instance_of Gimei::Name::First
+    end
+  end
+
+  describe '.last' do
+    it 'Gimei::Name::Last オブジェクトが返ること' do
+      _(Gimei::Name.last).must_be_instance_of Gimei::Name::Last
+    end
+  end
+
   describe '#gender' do
     it ':male または :female が返ること' do
       _(Gimei::Name.new.gender).must_be_instance_of(Symbol)
