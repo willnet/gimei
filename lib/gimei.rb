@@ -39,7 +39,7 @@ class Gimei
       @addresses ||= YAML.load_file(File.expand_path(File.join('..', 'data', 'addresses.yml'), __FILE__))
     end
 
-    %i[kanji hiragana katakana romaji first last].each do |method_name|
+    %i[kanji hiragana katakana romaji first last family given].each do |method_name|
       define_method(method_name) do |gender = nil|
         name(gender).public_send(method_name)
       end

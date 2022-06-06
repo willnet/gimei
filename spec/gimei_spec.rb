@@ -119,9 +119,21 @@ describe Gimei do
     end
   end
 
+  describe '.family' do
+    it 'Gimei::Name::Last オブジェクトが返ること' do
+      _(Gimei.family).must_be_instance_of Gimei::Name::Last
+    end
+  end
+
   describe '#family' do
     it 'Gimei::Name::Last オブジェクトが返ること' do
       _(Gimei.new.family).must_be_instance_of Gimei::Name::Last
+    end
+  end
+
+  describe '.given' do
+    it 'Gimei::Name::First オブジェクトが返ること' do
+      _(Gimei.given).must_be_instance_of Gimei::Name::First
     end
   end
 
