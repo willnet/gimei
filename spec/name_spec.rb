@@ -95,7 +95,7 @@ describe Gimei::Name do
     end
   end
 
-  describe '.romaji' do
+  describe '#romaji' do
     it 'ローマ字とスペースが返ること' do
       _(Gimei::Name.new.romaji).must_match(/\A[a-zA-Z\s]+\z/)
     end
