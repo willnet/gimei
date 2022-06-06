@@ -58,6 +58,9 @@ class Gimei
         @unique.define_unique_method(method_name)
       end
 
+      @unique.define_unique_method(:family, :last)
+      @unique.define_unique_method(:given, :first)
+
       %i[male female kanji].each do |method_name|
         @unique.define_unique_method(method_name, :name)
       end
