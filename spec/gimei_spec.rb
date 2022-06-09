@@ -108,13 +108,13 @@ describe Gimei do
   end
 
   describe '.last' do
-    it 'Gimei::Name::First オブジェクトが返ること' do
+    it 'Gimei::Name::Last オブジェクトが返ること' do
       _(Gimei.last).must_be_instance_of Gimei::Name::Last
     end
   end
 
   describe '#last' do
-    it 'Gimei::Name::First オブジェクトが返ること' do
+    it 'Gimei::Name::Last オブジェクトが返ること' do
       _(Gimei.new.last).must_be_instance_of Gimei::Name::Last
     end
   end
