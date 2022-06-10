@@ -33,6 +33,20 @@ gimei.first.katakana #=> "ハルナ"
 gimei.first.romaji   #=> "Haruna"
 ```
 
+`gimei.last`, `gimei.first` の代わりに、`gimei.family`, `gimei.given` を用いることもできます。
+
+```ruby
+gimei.family.kanji     #=> "斎藤"
+gimei.family.hiragana  #=> "さいとう"
+gimei.family.katakana  #=> "サイトウ"
+gimei.family.romaji    #=> "Saitou"
+
+gimei.given.kanji    #=> "陽菜"
+gimei.given.hiragana #=> "はるな"
+gimei.given.katakana #=> "ハルナ"
+gimei.given.romaji   #=> "Haruna"
+```
+
 下記のように男性／女性の名前を返すことを明示的に指定できます。`Gimei.name` の場合は男女の名前を等確率で返します。
 
 ```ruby
@@ -64,6 +78,16 @@ Gimei.first.kanji    #=> "結菜"
 Gimei.first.hiragana #=> "ここあ"
 Gimei.first.katakana #=> "ヤマト"
 Gimei.first.romaji   #=> "Noriyuki"
+
+Gimei.family.kanji     #=> "黒沢"
+Gimei.family.hiragana  #=> "いずみ"
+Gimei.family.katakana  #=> "エノモト"
+Gimei.family.romaji    #=> "Okada"
+
+Gimei.given.kanji    #=> "航"
+Gimei.given.hiragana #=> "まさみつ"
+Gimei.given.katakana #=> "ユカ"
+Gimei.given.romaji   #=> "Haruto"
 ```
 
 同じ名前を二度取得したくない場合には、以下のように`unique`を挟みます。次のようにすると、利用した名前をGimei内で保持することで必ず一意な名前を返すようにできます。
@@ -109,6 +133,9 @@ Gimei.unique.clear(:first) # Gimei.unique.first の結果を消去
 - `Gimei.unique.male`
 - `Gimei.unique.female`
 - `Gimei.unique.kanji`
+
+`Gimei.unique.family` で生成された名前は `Gimei.unique.clear(:last)` で消去します。
+また、`Gimei.unique.given` で生成された名前は `Gimei.unique.clear(:first)` で消去します。
 
 出力される名前の候補となるデータは `lib/data/names.yml` にあるので、必要であればファイルを修正してください。
 
