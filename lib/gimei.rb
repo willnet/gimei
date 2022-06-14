@@ -11,7 +11,11 @@ class Gimei
 
   GENDERS = [:male, :female].freeze
 
-  def_delegators :@name, :gender, :kanji, :hiragana, :katakana, :first, :last, :male?, :female?, :romaji
+  def_delegators :@name,
+                 :first, :last, :gender,
+                 :kanji, :hiragana, :katakana, :romaji,
+                 :male?, :female?,
+                 :family, :given
   def_delegators :@address, :prefecture, :city, :town
   alias_method :to_s, :kanji
 
@@ -35,7 +39,7 @@ class Gimei
       @addresses ||= YAML.load_file(File.expand_path(File.join('..', 'data', 'addresses.yml'), __FILE__))
     end
 
-    %i[kanji hiragana katakana romaji first last].each do |method_name|
+    %i[kanji hiragana katakana romaji first last family given].each do |method_name|
       define_method(method_name) do |gender = nil|
         name(gender).public_send(method_name)
       end
@@ -53,6 +57,9 @@ class Gimei
       %i[name last first hiragana katakana romaji address prefecture city town].each do |method_name|
         @unique.define_unique_method(method_name)
       end
+
+      @unique.define_unique_method(:family, :last)
+      @unique.define_unique_method(:given, :first)
 
       %i[male female kanji].each do |method_name|
         @unique.define_unique_method(method_name, :name)
