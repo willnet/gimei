@@ -1,3 +1,8 @@
+## 1.1.0
+
+- Gimei::Name#family, #given を追加 [@nard-tech](https://github.com/nard-tech) (https://github.com/willnet/gimei/pull/50)
+- テストケースの修正 [@nard-tech](https://github.com/nard-tech) https://github.com/willnet/gimei/pull/49
+
 ## 1.0.1
 
 - Ruby 3.1のサポート[@willnet](https://github.com/willnet) (https://github.com/willnet/gimei/pull/48)
