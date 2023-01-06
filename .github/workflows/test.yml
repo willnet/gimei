@@ -29,6 +29,7 @@ jobs:
           - ruby:2.7
           - ruby:3.0
           - ruby:3.1
+          - ruby:3.2
           - rubylang/ruby:master-nightly-bionic
         include:
           - ruby: rubylang/ruby:master-nightly-bionic
