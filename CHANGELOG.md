@@ -1,3 +1,5 @@
+https://github.com/willnet/gimei/releases に移行しました
+
 ## 1.1.0
 
 - Gimei::Name#family, #given を追加 [@nard-tech](https://github.com/nard-tech) (https://github.com/willnet/gimei/pull/50)
