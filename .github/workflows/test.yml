@@ -60,3 +60,6 @@ jobs:
           set -xe
           bundle exec rake
         continue-on-error: ${{ matrix.allow_failures == 'true' }}
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
