@@ -1,6 +1,5 @@
 # Gimei
 
-[![Travis](https://img.shields.io/travis/willnet/gimei.svg)](https://travis-ci.org/willnet/gimei)
 [![Coveralls](https://coveralls.io/repos/willnet/gimei/badge.svg)](https://coveralls.io/r/willnet/gimei)
 [![Code Climate](https://codeclimate.com/github/willnet/gimei/badges/gpa.svg)](https://codeclimate.com/github/willnet/gimei)
 [![Gem](https://img.shields.io/gem/v/gimei.svg)](https://rubygems.org/gems/gimei)
