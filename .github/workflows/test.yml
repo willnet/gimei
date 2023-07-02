@@ -36,7 +36,7 @@ jobs:
             allow_failures: "true"
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache vendor/bundle
         uses: actions/cache@v1
