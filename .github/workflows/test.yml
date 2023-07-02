@@ -30,9 +30,9 @@ jobs:
           - ruby:3.0
           - ruby:3.1
           - ruby:3.2
-          - rubylang/ruby:master-nightly-bionic
+          - rubylang/ruby:master-jammy
         include:
-          - ruby: rubylang/ruby:master-nightly-bionic
+          - ruby: rubylang/ruby:master-jammy
             allow_failures: "true"
 
     steps:
@@ -60,3 +60,6 @@ jobs:
           set -xe
           bundle exec rake
         continue-on-error: ${{ matrix.allow_failures == 'true' }}
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
