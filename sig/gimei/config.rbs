@@ -1,0 +1,6 @@
+class Gimei
+  class Config
+    attr_accessor rng: singleton(Random)
+    def initialize: (?rng: singleton(Random)) -> void
+  end
+end

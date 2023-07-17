@@ -1,0 +1,42 @@
+class Gimei
+  class Address
+    attr_reader prefecture: Prefecture
+    attr_reader city: City
+    attr_reader town: Town
+    def initialize: -> void
+    def kanji: -> String
+    def hiragana: -> String
+    def katakana: -> String
+    def romaji: -> String
+
+    class Prefecture
+      @prefectures: [String, String, String]
+
+      def kanji: -> String
+      def hiragana: -> String
+      def katakana: -> String
+      def romaji: -> String
+      def initialize: -> void
+    end
+
+    class City
+      @cities: [String, String, String]
+
+      def kanji: -> String
+      def hiragana: -> String
+      def katakana: -> String
+      def romaji: -> String
+      def initialize: -> void
+    end
+
+    class Town
+      @towns: [String, String, String]
+
+      def kanji: -> String
+      def hiragana: -> String
+      def katakana: -> String
+      def romaji: -> String
+      def initialize: -> void
+    end
+  end
+end

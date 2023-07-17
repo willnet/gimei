@@ -1,0 +1,23 @@
+class Gimei
+  class RetryLimitExceeded < StandardError
+  end
+
+  class UniqueGenerator
+    self.@previous_results: Hash[Symbol, Set[String]]
+
+    def self.previous_results: -> Hash[Symbol, Set[String]]
+    def initialize: (Class klass, Integer max_retries) -> void
+    def previous_results: -> Hash[Symbol, Set[String]]
+    def clear: (?Symbol? key) -> void
+    def define_unique_method: (Symbol method_name, ?Symbol previous_result_key) -> Symbol
+    def name: -> Name
+    def first: -> Name::First
+    def last: -> Name::Last
+    alias family last
+    alias given first
+
+    private
+    attr_reader klass: Class
+    attr_reader max_retries: Integer
+  end
+end

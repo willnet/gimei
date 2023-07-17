@@ -1,0 +1,30 @@
+class Gimei
+  type gender_type = :female | :male
+
+  GENDERS: [:male, :female]
+  extend Forwardable
+  self.@names: untyped # (Hash['first_name', Hash[('male' | 'female'), [String, String, String]]] | Hash['last_name', [String, String, String]])
+  self.@addresses: Hash['addresses', Hash[('prefecture' | 'city' | 'town'), [String, String, String]]]
+  self.@unique: UniqueGenerator
+  self.@config: Config
+
+  attr_reader name: Name
+  attr_reader address: Address
+  def self.male: -> Name
+  def self.female: -> Name
+  def self.name: (?gender_type? gender) -> Name
+  def self.names: -> untyped # (Hash['first_name', Hash[('male' | 'female'), [String, String, String]]] | Hash['last_name', [String, String, String]])
+  def self.addresses: -> Hash['addresses', Hash[('prefecture' | 'city' | 'town'), [String, String, String]]]
+  def self.kanji: -> String
+  def self.hiragana: -> String
+  def self.katakana: -> String
+  def self.romaji: -> String
+  def self.first: -> Name::First
+  def self.last: -> Name::Last
+  def self.address: -> Address
+  def self.unique: (?Integer max_retries) -> UniqueGenerator
+  def self.config: -> Config
+  def initialize: (?gender_type? gender) -> void
+  alias self.family self.last
+  alias self.given self.first
+end

@@ -1,0 +1,58 @@
+class Gimei
+  class Name
+    attr_reader first: First
+    attr_reader last: Last
+    attr_reader gender: gender_type
+    def self.male: -> Name
+    def self.female: -> Name
+    def initialize: (?(gender_type)? gender) -> void
+    def kanji: -> String
+    def hiragana: -> String
+    def katakana: -> String
+    def romaji: -> String
+    def male?: -> bool
+    def female?: -> bool
+    alias family last
+    alias given first
+
+    class First
+      extend Forwardable
+      @gender: gender_type
+      @name: NameWord
+
+      def self.male: -> First
+      def self.female: -> First
+      def initialize: (?(gender_type)? gender) -> void
+      def kanji: -> String
+      def hiragana: -> String
+      def katakana: -> String
+      def to_s: -> String
+      def romaji: -> String
+      def male?: -> bool
+      def female?: -> bool
+    end
+
+    class Last
+      extend Forwardable
+      @gender: gender_type
+      @name: NameWord
+
+      def initialize: -> void
+      def kanji: -> String
+      def hiragana: -> String
+      def katakana: -> String
+      def to_s: -> String
+      def romaji: -> String
+    end
+
+    class NameWord
+      @name: [String, String, String]
+
+      def initialize: ([String, String, String] name) -> void
+      def kanji: -> String
+      def hiragana: -> String
+      def katakana: -> String
+      def romaji: -> String
+    end
+  end
+end
