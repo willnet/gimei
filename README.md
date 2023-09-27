@@ -255,7 +255,7 @@ Gimei.address.kanji #=> "熊本県日進市東場内"
 - Emacs Lisp [gongo/emacs-gimei](https://github.com/gongo/emacs-gimei)
 - Go         [mattn/go-gimei](https://github.com/mattn/go-gimei)
 - Java       [moznion/gimei-java](https://github.com/moznion/gimei-java)
-- Node.js    [demiglacesource/node-gimei](https://github.com/demiglacesource/node-gimei)
+- Node.js    [sabakan404/node-gimei](https://github.com/sabakan404/node-gimei)
 - Perl       [youpong/Data-Gimei](https://github.com/youpong/Data-Gimei)
 - Python     [nabetama/gimei](https://github.com/nabetama/gimei)
 - TypeScript [abcb2/type-gimei](https://github.com/abcb2/type-gimei)
