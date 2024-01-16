@@ -24,7 +24,7 @@ class Gimei
   class << self
     extend Forwardable
 
-    def_delegators Gimei::Name, :male, :female
+    def_delegators 'Gimei::Name', :male, :female
     def_delegators :address, :prefecture, :city, :town
 
     def name(gender = nil)
