@@ -238,7 +238,6 @@ Gimei.address.kanji #=> "熊本県日進市東場内"
 
 ## Supported versions
 
-- 2.2.x
 - 2.3.x
 - 2.4.x
 - 2.5.x
@@ -247,6 +246,7 @@ Gimei.address.kanji #=> "熊本県日進市東場内"
 - 3.0.x
 - 3.1.x
 - 3.2.x
+- 3.3.x
 
 ## 他言語による実装
 
