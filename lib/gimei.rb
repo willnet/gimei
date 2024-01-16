@@ -9,7 +9,7 @@ require 'gimei/config'
 class Gimei
   extend Forwardable
 
-  GENDERS = [:male, :female].freeze
+  GENDERS = [:male, :female].freeze #: [:male, :female]
 
   def_delegators :@name,
                  :first, :last, :gender,
@@ -40,9 +40,11 @@ class Gimei
     end
 
     %i[kanji hiragana katakana romaji first last family given].each do |method_name|
-      define_method(method_name) do |gender = nil|
-        name(gender).public_send(method_name)
-      end
+      class_eval(<<~METHOD, __FILE__, __LINE__ + 1)
+        def #{method_name}(gender = nil)
+          new(gender).#{method_name}
+        end
+       METHOD
     end
 
     def address

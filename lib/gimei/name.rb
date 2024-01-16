@@ -15,14 +15,16 @@ class Gimei::Name
     end
 
     %i[kanji hiragana katakana romaji first last family given].each do |method_name|
-      define_method(method_name) do |gender = nil|
-        new(gender).public_send(method_name)
-      end
+      class_eval(<<~METHOD, __FILE__, __LINE__ + 1)
+        def #{method_name}(gender = nil)
+          new(gender).#{method_name}
+        end
+      METHOD
     end
   end
 
   def initialize(gender = nil)
-    @gender = gender || Gimei::GENDERS.sample(random: Gimei.config.rng)
+    @gender = gender || Gimei::GENDERS.sample(random: Gimei.config.rng) #: :male | :female
     @first = First.new @gender
     @last = Last.new
   end
@@ -71,7 +73,7 @@ class Gimei::Name
     def_delegators :@name, :kanji, :hiragana, :katakana, :to_s, :romaji
 
     def initialize(gender = nil)
-      @gender = gender || Gimei::GENDERS.sample(random: Gimei.config.rng)
+      @gender = gender || Gimei::GENDERS.sample(random: Gimei.config.rng) #: :male | :female
       @name = NameWord.new(Gimei.names['first_name'][@gender.to_s].sample(random: Gimei.config.rng))
     end
 
@@ -89,7 +91,8 @@ class Gimei::Name
     def_delegators :@name, :kanji, :hiragana, :katakana, :to_s, :romaji
 
     def initialize
-      @name = NameWord.new(Gimei.names['last_name'].sample(random: Gimei.config.rng))
+      name = Gimei.names['last_name'].sample(random: Gimei.config.rng) #: [String, String, String]
+      @name = NameWord.new(name)
     end
   end
 

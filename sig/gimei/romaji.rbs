@@ -1,0 +1,4 @@
+module Romaji
+  def self.romaji2kana: (String, Hash[Symbol, Symbol]?) -> String
+  def self.kana2romaji: (String) -> String
+end

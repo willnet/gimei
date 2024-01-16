@@ -1,0 +1,23 @@
+---
+- file: lib/gimei.rb
+  diagnostics:
+  - range:
+      start:
+        line: 27
+        character: 4
+      end:
+        line: 27
+        character: 18
+    severity: ERROR
+    message: Type `singleton(::Class)` does not have method `def_delegators`
+    code: Ruby::NoMethod
+  - range:
+      start:
+        line: 28
+        character: 4
+      end:
+        line: 28
+        character: 18
+    severity: ERROR
+    message: Type `singleton(::Class)` does not have method `def_delegators`
+    code: Ruby::NoMethod

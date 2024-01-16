@@ -32,7 +32,9 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
-
+      - name: Run type check
+        run: bundle exec steep check --with-expectations
+        continue-on-error: ${{ matrix.allow_failures == 'true' }}
       - name: Run test
         run: |
           set -xe
