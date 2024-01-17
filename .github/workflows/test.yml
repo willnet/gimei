@@ -32,9 +32,6 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
-      - name: Run type check
-        run: bundle exec steep check --with-expectations
-        continue-on-error: ${{ matrix.allow_failures == 'true' }}
       - name: Run test
         run: |
           set -xe
@@ -43,3 +40,15 @@ jobs:
 
       - name: Coveralls
         uses: coverallsapp/github-action@v2
+
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+          bundler-cache: true
+      - name: Run type check
+        run: bundle exec steep check --with-expectations
