@@ -5,6 +5,14 @@ class Gimei
     attr_reader gender: gender_type
     def self.male: -> Name
     def self.female: -> Name
+    def self.kanji: (?(gender_type)? gender) -> String
+    def self.hiragana: (?(gender_type)? gender) -> String
+    def self.katakana: (?(gender_type)? gender) -> String
+    def self.romaji: (?(gender_type)? gender) -> String
+    def self.first: (?(gender_type)? gender) -> String
+    def self.last: (?(gender_type)? gender) -> String
+    def self.family: (?(gender_type)? gender) -> String
+    def self.given:  (?(gender_type)? gender) -> String
     def initialize: (?(gender_type)? gender) -> void
     def kanji: -> String
     def hiragana: -> String

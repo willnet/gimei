@@ -10,9 +10,19 @@ class Gimei
     def previous_results: -> Hash[Symbol, Set[String]]
     def clear: (?Symbol? key) -> void
     def define_unique_method: (Symbol method_name, ?Symbol previous_result_key) -> Symbol
-    def name: -> Name
-    def first: -> Name::First
-    def last: -> Name::Last
+    def name: (?gender_type?) -> Name
+    def male: -> Name
+    def female: -> Name
+    def first: (?gender_type?) -> Name::First
+    def last: (?gender_type?) -> Name::Last
+    def hiragana: (?gender_type?) -> String
+    def katakana: (?gender_type?) -> String
+    def kanji: (?gender_type?) -> String
+    def romaji: (?gender_type?) -> String
+    def address: -> Address
+    def prefecture: -> Address::Prefecture
+    def city: -> Address::City
+    def town: -> Address::Town
     alias family last
     alias given first
 
