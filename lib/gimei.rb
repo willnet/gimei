@@ -42,9 +42,9 @@ class Gimei
     %i[kanji hiragana katakana romaji first last family given].each do |method_name|
       class_eval(<<~METHOD, __FILE__, __LINE__ + 1)
         def #{method_name}(gender = nil)
-          new(gender).#{method_name}
+          name(gender).#{method_name}
         end
-       METHOD
+      METHOD
     end
 
     def address
