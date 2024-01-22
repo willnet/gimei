@@ -1,3 +1,5 @@
+require 'set'
+
 class Gimei
   class RetryLimitExceeded < StandardError; end
 
@@ -28,7 +30,12 @@ class Gimei
     def define_unique_method(method_name, previous_result_key = method_name)
       define_singleton_method method_name do |*args|
         max_retries.times do
-          result = klass.public_send(method_name, *args)
+
+          if args.empty? || ! args[0].instance_of?(Hash)                     
+            result = klass.public_send(method_name, *args)     # normal args(include no args)
+          else
+            result = klass.public_send(method_name, **args[0]) # keyword args
+          end
 
           next if previous_results[previous_result_key].include?(result.to_s)
 
