@@ -15,16 +15,34 @@ class Gimei
   def self.name: (?gender_type? gender) -> Name
   def self.names: -> untyped # (Hash['first_name', Hash[('male' | 'female'), Array[[String, String, String]]]] | Hash['last_name', Array[[String, String, String]]])
   def self.addresses: -> Hash['addresses', Hash[('prefecture' | 'city' | 'town'), Array[[String, String, String]]]]
-  def self.kanji: -> String
-  def self.hiragana: -> String
-  def self.katakana: -> String
-  def self.romaji: -> String
-  def self.first: -> Name::First
-  def self.last: -> Name::Last
+  def self.kanji: (?gender_type? gender) -> String
+  def self.hiragana: (?gender_type? gender) -> String
+  def self.katakana: (?gender_type? gender) -> String
+  def self.romaji: (?gender_type? gender) -> String
+  def self.first: (?gender_type? gender) -> Name::First
+  def self.last: (?gender_type? gender) -> Name::Last
   def self.address: -> Address
+  def self.prefecture: -> Address::Prefecture
+  def self.city: -> Address::City
+  def self.town: -> Address::Town
   def self.unique: (?Integer max_retries) -> UniqueGenerator
   def self.config: -> Config
-  def initialize: (?gender_type? gender) -> void
   alias self.family self.last
   alias self.given self.first
+
+  def initialize: (?gender_type? gender) -> void
+  def first: ->  Gimei::Name::First
+  def last: ->  Gimei::Name::Last
+  def gender: -> gender_type
+  def kanji: -> String
+  def hiragana: -> String
+  def katakana: -> String
+  def romaji: -> String
+  def family: -> String
+  def given: -> String
+  def male?: -> bool
+  def female?: -> bool
+  def prefecture: -> Address::Prefecture
+  def city: -> Address::City
+  def town: -> Address::Town
 end
