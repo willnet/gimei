@@ -181,6 +181,16 @@ describe 'Gimei.unique' do
           end
         end
       end
+      it 'clear(:family)を実行すると再度姓を取得できること' do
+        Gimei.stub(:names, {
+                     'first_name' => { 'male' => [], 'female' => [] },
+                     'last_name' => [%w[前島 まえしま マエシマ]]
+                   }) do
+          Gimei.unique.family
+          Gimei.unique.clear(:family)
+          Gimei.unique.family
+        end
+      end
     end
   end
 
@@ -206,6 +216,16 @@ describe 'Gimei.unique' do
             Gimei.unique.given(:male)
             Gimei.unique.given(:male)
           end
+        end
+      end
+      it 'clear(:given)を実行すると再度名を取得できること' do
+        Gimei.stub(:names, {
+                     'first_name' => { 'male' => [%w[真一 しんいち シンイチ]] },
+                     'last_name' => []
+                   }) do
+          Gimei.unique.given
+          Gimei.unique.clear(:given)
+          Gimei.unique.given
         end
       end
     end

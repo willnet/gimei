@@ -18,10 +18,15 @@ class Gimei
     end
 
     def clear(key = nil)
-      if key
-        previous_results[key.to_sym].clear
-      else
+      case key
+      when :family
+        previous_results[:last].clear
+      when :given
+        previous_results[:first].clear
+      when nil
         previous_results.clear
+      else
+        previous_results[key.to_sym].clear
       end
     end
 
