@@ -133,9 +133,6 @@ Gimei.unique.clear(:first) # Gimei.unique.first の結果を消去
 - `Gimei.unique.female`
 - `Gimei.unique.kanji`
 
-`Gimei.unique.family` で生成された名前は `Gimei.unique.clear(:last)` で消去します。
-また、`Gimei.unique.given` で生成された名前は `Gimei.unique.clear(:first)` で消去します。
-
 出力される名前の候補となるデータは `lib/data/names.yml` にあるので、必要であればファイルを修正してください。
 
 ### 住所をランダムで返す
