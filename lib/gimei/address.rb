@@ -39,11 +39,11 @@ class Gimei::Address
     end
 
     def romaji
-      Romaji.kana2romaji(hiragana).capitalize
+      @prefectures[3]
     end
 
     def initialize
-      @prefectures = Gimei.addresses['addresses']['prefecture'].sample(random: Gimei.config.rng) #: [String, String, String]
+      @prefectures = Gimei.addresses['addresses']['prefecture'].sample(random: Gimei.config.rng) #: [String, String, String, String]
     end
 
     alias_method :to_s, :kanji
@@ -63,11 +63,11 @@ class Gimei::Address
     end
 
     def romaji
-      Romaji.kana2romaji(hiragana).capitalize
+      @cities[3]
     end
 
     def initialize
-      @cities = Gimei.addresses['addresses']['city'].sample(random: Gimei.config.rng) #: [String, String, String]
+      @cities = Gimei.addresses['addresses']['city'].sample(random: Gimei.config.rng) #: [String, String, String, String]
     end
 
     alias_method :to_s, :kanji
@@ -87,11 +87,11 @@ class Gimei::Address
     end
 
     def romaji
-      Romaji.kana2romaji(hiragana).capitalize
+      @towns[3]
     end
 
     def initialize
-      @towns = Gimei.addresses['addresses']['town'].sample(random: Gimei.config.rng) #: [String, String, String]
+      @towns = Gimei.addresses['addresses']['town'].sample(random: Gimei.config.rng) #: [String, String, String, String]
     end
 
     alias_method :to_s, :kanji

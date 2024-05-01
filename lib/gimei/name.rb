@@ -1,5 +1,3 @@
-require 'romaji'
-
 class Gimei::Name
   attr_reader :first, :last, :gender
 
@@ -91,7 +89,7 @@ class Gimei::Name
     def_delegators :@name, :kanji, :hiragana, :katakana, :to_s, :romaji
 
     def initialize
-      name = Gimei.names['last_name'].sample(random: Gimei.config.rng) #: [String, String, String]
+      name = Gimei.names['last_name'].sample(random: Gimei.config.rng) #: [String, String, String, String]
       @name = NameWord.new(name)
     end
   end
@@ -114,7 +112,7 @@ class Gimei::Name
     end
 
     def romaji
-      Romaji.kana2romaji(hiragana).capitalize
+      @name[3]
     end
 
     alias_method :to_s, :kanji
