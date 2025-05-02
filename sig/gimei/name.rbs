@@ -54,9 +54,9 @@ class Gimei
     end
 
     class NameWord
-      @name: [String, String, String]
+      @name: [String, String, String, String]
 
-      def initialize: ([String, String, String] name) -> void
+      def initialize: ([String, String, String, String] name) -> void
       def kanji: -> String
       def hiragana: -> String
       def katakana: -> String
