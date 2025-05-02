@@ -235,15 +235,7 @@ Gimei.address.kanji #=> "熊本県日進市東場内"
 
 ## Supported versions
 
-- 2.3.x
-- 2.4.x
-- 2.5.x
-- 2.6.x
-- 2.7.x
-- 3.0.x
-- 3.1.x
-- 3.2.x
-- 3.3.x
+Ruby 2.3以上
 
 ## 他言語による実装
 
