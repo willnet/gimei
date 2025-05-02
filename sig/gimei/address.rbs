@@ -10,7 +10,7 @@ class Gimei
     def romaji: -> String
 
     class Prefecture
-      @prefectures: [String, String, String]
+      @prefectures: [String, String, String, String]
 
       def kanji: -> String
       def hiragana: -> String
@@ -20,7 +20,7 @@ class Gimei
     end
 
     class City
-      @cities: [String, String, String]
+      @cities: [String, String, String, String]
 
       def kanji: -> String
       def hiragana: -> String
@@ -30,7 +30,7 @@ class Gimei
     end
 
     class Town
-      @towns: [String, String, String]
+      @towns: [String, String, String, String]
 
       def kanji: -> String
       def hiragana: -> String

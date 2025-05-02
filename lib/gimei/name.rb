@@ -89,7 +89,7 @@ class Gimei::Name
     def_delegators :@name, :kanji, :hiragana, :katakana, :to_s, :romaji
 
     def initialize
-      name = Gimei.names['last_name'].sample(random: Gimei.config.rng) #: [String, String, String, String]
+      name = Gimei.names['last_name'].sample(random: Gimei.config.rng)
       @name = NameWord.new(name)
     end
   end
