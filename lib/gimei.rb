@@ -3,6 +3,7 @@ require 'yaml'
 require 'gimei/version'
 require 'gimei/name'
 require 'gimei/address'
+require 'gimei/phone'
 require 'gimei/unique_generator'
 require 'gimei/config'
 
@@ -19,7 +20,7 @@ class Gimei
   def_delegators :@address, :prefecture, :city, :town
   alias_method :to_s, :kanji
 
-  attr_reader :name, :address
+  attr_reader :name, :address, :phone
 
   class << self
     extend Forwardable
@@ -51,12 +52,20 @@ class Gimei
       Address.new
     end
 
+    def phone(hyphen: false, type: nil)
+      Phone.new(hyphen: hyphen, type: type)
+    end
+
+    def mobile_phone(hyphen: false)
+      Phone.new(hyphen: hyphen, type: :mobile)
+    end
+
     def unique(max_retries = 10_000)
       return @unique if defined? @unique
 
       @unique = UniqueGenerator.new(self, max_retries)
 
-      %i[name last first hiragana katakana romaji address prefecture city town].each do |method_name|
+      %i[name last first hiragana katakana romaji address prefecture city town phone].each do |method_name|
         @unique.define_unique_method(method_name)
       end
 
@@ -67,6 +76,8 @@ class Gimei
         @unique.define_unique_method(method_name, :name)
       end
 
+      @unique.define_unique_method(:mobile_phone, :phone)
+
       @unique
     end
 
@@ -76,8 +87,9 @@ class Gimei
   end
 
 
-  def initialize(gender = nil)
+  def initialize(gender = nil, phone_hyphen: false, phone_type: nil)
     @name = Name.new(gender)
     @address = Address.new
+    @phone = Phone.new(hyphen: phone_hyphen, type: phone_type)
   end
 end
