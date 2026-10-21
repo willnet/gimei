@@ -1,0 +1,52 @@
+name: Dependabot auto-merge
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  auto-merge:
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate GitHub App token
+        if: steps.metadata.outputs.package-ecosystem == 'github-actions'
+        id: app-token
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3
+        with:
+          client-id: ${{ secrets.AUTO_MERGE_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.AUTO_MERGE_BOT_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+          permission-workflows: write
+
+      # Required status checks on the base branch must include All tests passed.
+      # Without branch protection, --auto can merge before CI finishes.
+      - name: Approve and enable auto-merge
+        if: steps.metadata.outputs.package-ecosystem == 'github-actions'
+        run: |
+          gh pr review --approve "$PR_URL"
+          gh pr merge --auto --merge --match-head-commit "$PR_HEAD_SHA" "$PR_URL"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
