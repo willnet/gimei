@@ -56,3 +56,18 @@ jobs:
           bundler-cache: true
       - name: Run type check
         run: bundle exec steep check --with-expectations
+
+  test-success:
+    name: All tests passed
+    needs: [test, type-check]
+    # Run even when a dependency fails or is skipped, so this required check
+    # cannot report success without both tests and type checks passing.
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Verify test and type check results
+        run: test "$TEST_RESULT" = success && test "$TYPE_CHECK_RESULT" = success
+        env:
+          TEST_RESULT: ${{ needs.test.result }}
+          TYPE_CHECK_RESULT: ${{ needs.type-check.result }}
