@@ -1,7 +1,6 @@
 # Gimei
 
 [![Coveralls](https://coveralls.io/repos/willnet/gimei/badge.svg)](https://coveralls.io/r/willnet/gimei)
-[![Code Climate](https://codeclimate.com/github/willnet/gimei/badges/gpa.svg)](https://codeclimate.com/github/willnet/gimei)
 [![Gem](https://img.shields.io/gem/v/gimei.svg)](https://rubygems.org/gems/gimei)
 
 [日本語のドキュメントはこちら(Japanese README)](README.ja.md)
