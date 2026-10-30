@@ -29,7 +29,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate GitHub App token
-        if: steps.metadata.outputs.package-ecosystem == 'github-actions'
+        # fetch-metadata uses github_actions, unlike dependabot.yml's github-actions.
+        if: steps.metadata.outputs.package-ecosystem == 'github_actions'
         id: app-token
         uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3
         with:
@@ -42,7 +43,7 @@ jobs:
       # Required status checks on the base branch must include All tests passed.
       # Without branch protection, --auto can merge before CI finishes.
       - name: Approve and enable auto-merge
-        if: steps.metadata.outputs.package-ecosystem == 'github-actions'
+        if: steps.metadata.outputs.package-ecosystem == 'github_actions'
         run: |
           gh pr review --approve "$PR_URL"
           gh pr merge --auto --merge --match-head-commit "$PR_HEAD_SHA" "$PR_URL"
